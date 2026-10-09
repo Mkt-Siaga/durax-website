@@ -120,8 +120,8 @@
           ['Blog Duráximo', PAGINAS.blog], ['Centros de distribuição', '#']]) +
         col('SUPORTE TÉCNICO', [['FISPQ', '#'], ['Certificado de Aprovação (CA)', '#'], ['Manuais', '#'], ['Política de garantia', '#']]) +
         '<div class="footer-col"><span class="titulo">ATENDIMENTO</span>' +
-          '<a class="destaque" href="' + WHATSAPP + '" target="_blank" rel="noopener">WhatsApp (11) 91482-9870</a>' +
-          '<span>SAC (11) 91482-9870</span><span>R. Surubim, 577 – Cidade Monções<br>São Paulo – SP</span></div>' +
+          '<a class="destaque" href="' + WHATSAPP + '" target="_blank" rel="noopener">SAC e WhatsApp (11) 91482-9870</a>' +
+          '<span>R. Surubim, 577 – Cidade Monções<br>São Paulo – SP</span></div>' +
       '</div>' +
       '<div class="footer-base"><div class="container">' +
         '<span>© Durax 2025–2026</span>' +
