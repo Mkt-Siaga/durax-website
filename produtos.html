@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Produtos — Durax</title>
+  <meta name="description" content="Catálogo Durax: ferramentas e materiais para construção civil. Busque por produto ou categoria.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&family=League+Gothic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header id="site-header" data-ativo="produtos"></header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Você está em">
+          <a href="index.html">Início</a><span>/</span><span aria-current="page">Produtos</span>
+        </nav>
+        <span class="eyebrow">CATÁLOGO DURAX</span>
+        <h1>Linha de produtos</h1>
+        <div class="hero-acoes">
+          <label class="busca">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D8D8D3" stroke-width="2.2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.5" y1="15.5" x2="21" y2="21"/></svg>
+            <input id="busca" type="search" placeholder="Buscar no catálogo: broca, painel, torneira…" aria-label="Buscar no catálogo">
+          </label>
+          <a class="btn" href="assets/catalogo/catalogo-durax-2026.pdf" target="_blank">Baixar catálogo (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalogo">
+      <div class="container">
+        <aside class="categorias">
+          <span class="rotulo">CATEGORIAS</span>
+          <div id="categorias" style="display:contents"></div>
+        </aside>
+
+        <div class="resultados">
+          <div class="resultados-topo">
+            <h2 id="titulo">Todos os produtos</h2>
+            <span><strong id="total">0</strong> famílias de produto</span>
+          </div>
+          <div id="grade" class="grade"></div>
+          <div id="vazio" class="vazio" hidden></div>
+          <span class="nota">Lista gerada a partir do índice do Catálogo Durax. Códigos, medidas e embalagens de cada item estão na página indicada do catálogo.</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/layout.js"></script>
+  <script src="js/catalogo.js"></script>
+  <script src="js/produtos.js"></script>
+</body>
+</html>
