@@ -39,6 +39,6 @@ Qualquer servidor estático na pasta (abrir via `file://` também funciona na ma
 
 - **Formulários sem envio** (Seja revendedor, newsletter da Home): marcados com `// TODO: integrar envio`.
 - **Dados placeholder:** revendas em `js/onde-comprar.js`; posts do blog em `js/blog.js`; códigos/EAN/medidas dos painéis aparecem como "a informar".
-- **Fotos:** 102 produtos do catálogo sem foto (usam o ícone da categoria); painéis LED usam todos a mesma foto.
+- **Fotos:** 279 de 298 itens têm foto (fotos oficiais Durax de `ITENS.zip` e, onde não havia, do acervo Siaga). Os 19 restantes usam o ícone da categoria — luvas (exceto a verde), fitas crepe/demarcação/empacotamento, lona preta, entre outros.
 - Links ainda sem destino (`href="#"`): redes sociais, área do revendedor, suporte técnico (FISPQ, CA, manuais), downloads da página de produto, páginas legais.
 - O índice do PDF cita até a pág. 135, mas o arquivo tem 126; números de página podem estar defasados.
