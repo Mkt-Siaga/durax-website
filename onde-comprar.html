@@ -4,11 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Onde comprar — Durax</title>
-  <meta name="description" content="Encontre lojas de material de construção, home centers e atacados que vendem produtos Durax na sua região.">
+  <meta name="description" content="Encontre os distribuidores Durax mais próximos da sua região.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&family=League+Gothic&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
   <link rel="stylesheet" href="css/pages/onde-comprar.css">
   <script src="js/tema.js"></script>
   <link rel="icon" href="favicon.ico" sizes="any">
@@ -19,7 +20,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Durax">
   <meta property="og:title" content="Onde comprar — Durax">
-  <meta property="og:description" content="Encontre lojas de material de construção, home centers e atacados que vendem produtos Durax na sua região.">
+  <meta property="og:description" content="Encontre os distribuidores Durax mais próximos da sua região.">
   <meta property="og:url" content="https://mkt-siaga.github.io/durax-website/onde-comprar.html">
   <meta property="og:image" content="https://mkt-siaga.github.io/durax-website/assets/icones/og-image.jpg">
   <meta property="og:image:width" content="1200">
@@ -54,7 +55,7 @@
           <div id="oc-itens" class="oc-itens" aria-live="polite"></div>
           <span class="oc-nota">A ordem pelo CEP é aproximada, por região. Não encontrou um ponto de venda perto de você? Fale com a gente pelo WhatsApp.</span>
         </div>
-        <div class="oc-mapa" aria-hidden="true">mapa de revendas</div>
+        <div id="oc-mapa" class="oc-mapa" role="region" aria-label="Mapa dos distribuidores Durax"></div>
       </div>
     </section>
 
@@ -77,6 +78,7 @@
   <footer id="site-footer"></footer>
 
   <script src="js/layout.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
   <script src="js/onde-comprar.js"></script>
 </body>
 </html>
