@@ -19,7 +19,7 @@
   };
   const THUMBS = ['foto do produto', 'foto em ambiente', 'embalagem', 'dimensões'];
   const TABS = ['DESCRIÇÃO', 'DIFERENCIAIS', 'INDICAÇÃO DE USO', 'DÚVIDAS'];
-  const WHATSAPP = 'https://wa.me/5541988597870';
+  const WHATSAPP = 'https://wa.me/5511914829870';
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
   const el = id => document.getElementById(id);

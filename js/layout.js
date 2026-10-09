@@ -1,7 +1,7 @@
 // Cabeçalho e rodapé compartilhados por todas as páginas.
 // Uso: <header id="site-header" data-ativo="produtos"></header> e <footer id="site-footer"></footer>
 (function () {
-  const WHATSAPP = 'https://wa.me/5541988597870';
+  const WHATSAPP = 'https://wa.me/5511914829870';
   const PAGINAS = {
     inicio: 'index.html',
     produtos: 'produtos.html',
@@ -56,7 +56,7 @@
       '<div class="topbar"><div class="container">' +
         '<span><strong>Seu estoque sempre cheio com a Durax.</strong> Receba seus pedidos em tempo recorde. ' +
         '<a class="cta" href="' + PAGINAS.revendedor + '">Garanta seu estoque</a></span>' +
-        '<span class="topbar-links"><a href="' + WHATSAPP + '" target="_blank" rel="noopener">WhatsApp (41) 98859-7870</a><a href="#">Área do revendedor</a></span>' +
+        '<span class="topbar-links"><a href="' + WHATSAPP + '" target="_blank" rel="noopener">WhatsApp (11) 91482-9870</a><a href="#">Área do revendedor</a></span>' +
         '<button class="tema-toggle" type="button" aria-label="Alternar tema">' + ICONE_TEMA + '<span>' + rotuloTema() + '</span></button>' +
       '</div></div>' +
       '<div class="navbar"><div class="container">' + LOGO +
@@ -120,7 +120,7 @@
           ['Blog Duráximo', PAGINAS.blog], ['Centros de distribuição', '#']]) +
         col('SUPORTE TÉCNICO', [['FISPQ', '#'], ['Certificado de Aprovação (CA)', '#'], ['Manuais', '#'], ['Política de garantia', '#']]) +
         '<div class="footer-col"><span class="titulo">ATENDIMENTO</span>' +
-          '<a class="destaque" href="' + WHATSAPP + '" target="_blank" rel="noopener">WhatsApp (41) 98859-7870</a>' +
+          '<a class="destaque" href="' + WHATSAPP + '" target="_blank" rel="noopener">WhatsApp (11) 91482-9870</a>' +
           '<span>SAC (11) 91482-9870</span><span>R. Surubim, 577 – Cidade Monções<br>São Paulo – SP</span></div>' +
       '</div>' +
       '<div class="footer-base"><div class="container">' +
