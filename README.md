@@ -41,4 +41,4 @@ Qualquer servidor estático na pasta (abrir via `file://` também funciona na ma
 - **Dados placeholder:** revendas em `js/onde-comprar.js`; posts do blog em `js/blog.js`; códigos/EAN/medidas dos painéis aparecem como "a informar".
 - **Fotos:** 279 de 298 itens têm foto (fotos oficiais Durax de `ITENS.zip` e, onde não havia, do acervo Siaga). Os 19 restantes usam o ícone da categoria — luvas (exceto a verde), fitas crepe/demarcação/empacotamento, lona preta, entre outros.
 - Links ainda sem destino (`href="#"`): redes sociais, área do revendedor, suporte técnico (FISPQ, CA, manuais), downloads da página de produto, páginas legais.
-- O índice do PDF cita até a pág. 135, mas o arquivo tem 126; números de página podem estar defasados.
+- Catálogo PDF: edição 2026 (144 págs.) em `assets/catalogo/catalogo-durax-2026.pdf`. As páginas de cada item em `js/catalogo.js` vêm do índice alfabético (págs. 131–132); ao trocar o PDF, atualizar as páginas também.
