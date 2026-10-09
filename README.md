@@ -27,6 +27,8 @@ js/catalogo.js        Dados do catálogo (window.DURAX_CATALOGO)
 js/paineis.js         Dados dos painéis LED (window.DURAX_PAINEIS)
 js/<pagina>.js        Lógica de cada página
 assets/               logo, produtos, site, textures, brand, catalogo (PDF)
+assets/icones/        ícones (16–512, apple-touch) e og-image.jpg (prévia de link 1200×630)
+favicon.ico           favicon 16/32/48 · site.webmanifest: ícones do app
 ```
 
 Regra: páginas usam só as variáveis de cor de `styles.css` (`--bg`, `--texto`, `--destaque`…), assim os dois temas funcionam sem CSS duplicado.
