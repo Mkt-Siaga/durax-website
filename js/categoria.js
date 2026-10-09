@@ -34,7 +34,7 @@
 
   function card(p) {
     return '<a class="painel" href="produto.html#p=' + p.i + '">' +
-      '<div class="painel-foto"><img src="assets/site/painel-led.png" alt="' + esc(p.name) + '" loading="lazy"></div>' +
+      '<div class="painel-foto"><img src="' + p.foto + '" alt="' + esc(p.name) + '" loading="lazy"></div>' +
       '<div class="painel-info">' +
         '<div class="painel-tags"><span class="tag-forte">' + p.potencia + 'W</span><span class="tag">' + p.temp + 'K</span><span class="tag">' + esc(p.instalacao) + '</span></div>' +
         '<span class="painel-nome">' + esc(p.name) + '</span>' +

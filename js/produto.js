@@ -20,7 +20,6 @@
   const THUMBS = ['foto do produto', 'foto em ambiente', 'embalagem', 'dimensões'];
   const TABS = ['DESCRIÇÃO', 'DIFERENCIAIS', 'INDICAÇÃO DE USO', 'DÚVIDAS'];
   const WHATSAPP = 'https://wa.me/5541988597870';
-  const FOTO = 'assets/site/painel-led.png';
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
   const el = id => document.getElementById(id);
@@ -52,12 +51,13 @@
     const cur = PRODUTOS[estado.idx];
     const foto = estado.thumb === 0;
     elFoto.hidden = !foto;
+    elFoto.src = cur.foto;
     elFoto.alt = cur.name;
     elSlot.hidden = foto;
     elSlot.textContent = THUMBS[estado.thumb];
     elMinis.innerHTML = THUMBS.map((label, i) =>
       '<button type="button" class="miniatura" data-thumb="' + i + '" aria-pressed="' + (i === estado.thumb) + '" aria-label="Ver ' + label + '">' +
-      (i === 0 ? '<img src="' + FOTO + '" alt="">' : '<span class="miniatura-slot">' + label + '</span>') + '</button>').join('');
+      (i === 0 ? '<img src="' + cur.foto + '" alt="">' : '<span class="miniatura-slot">' + label + '</span>') + '</button>').join('');
   }
 
   function renderAba() {
@@ -108,7 +108,7 @@
 
     elRel.innerHTML = PRODUTOS.filter(q => q.i !== cur.i && q.formato === cur.formato).slice(0, 4).map(q =>
       '<a class="relacionado" href="produto.html#p=' + q.i + '" data-p="' + q.i + '">' +
-        '<div class="relacionado-foto"><img src="' + FOTO + '" alt="" loading="lazy"></div>' +
+        '<div class="relacionado-foto"><img src="' + q.foto + '" alt="" loading="lazy"></div>' +
         '<span class="relacionado-nome">' + esc(q.name) + '</span></a>').join('');
   }
 

@@ -15,5 +15,7 @@ window.DURAX_PAINEIS = [
   const cor = n.includes('PRETO') ? 'Preto' : 'Branco', plast = n.includes('PLÁSTICO'), bivolt = n.includes('BIVOLT');
   const name = 'Painel LED ' + formato + (plast ? ' de plástico' : '') + ' de ' + instalacao.toLowerCase() + ' ' + potencia + 'W ' + temp + 'K' +
     (bivolt ? ' bivolt' : '') + (cor === 'Preto' ? ' preto' : '');
-  return { i, name, formato, instalacao, potencia, temp, cor, plast, bivolt };
+  // Foto do portfólio Siaga por formato/instalação (códigos H01NB00001/05/09/13)
+  const foto = 'assets/produtos/painel-led-' + instalacao.toLowerCase() + '-' + formato.toLowerCase() + '.jpg';
+  return { i, name, formato, instalacao, potencia, temp, cor, plast, bivolt, foto };
 });
