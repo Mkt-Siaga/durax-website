@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seja revendedor — Durax</title>
+  <meta name="description" content="Seja revendedor Durax: mix por região, reposição rápida, material de ponto de venda e suporte técnico. Cadastre sua loja.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&family=League+Gothic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/seja-revendedor.css">
+  <script src="js/tema.js"></script>
+</head>
+<body>
+  <header id="site-header" data-ativo="revendedor"></header>
+
+  <main>
+    <section class="sr-hero">
+      <div class="container">
+        <span class="eyebrow">PARA LOJISTAS E DISTRIBUIDORES</span>
+        <h1 class="display sr-hero-titulo">Seu estoque sempre cheio com a <span class="sr-marca">Durax</span></h1>
+        <p class="sr-hero-texto">Não perca vendas por falta de produto. Receba seus pedidos em tempo recorde, com mix pensado para o giro da sua loja.</p>
+        <div class="sr-hero-acoes">
+          <a class="btn sr-btn-principal" href="#form">QUERO SER REVENDEDOR</a>
+          <a class="sr-btn-whats" href="https://wa.me/5541988597870" target="_blank" rel="noopener">FALAR NO WHATSAPP</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sr-beneficios">
+      <div class="container">
+        <h2 class="sr-titulo">O que a revenda Durax recebe</h2>
+        <div class="sr-beneficios-grade">
+          <div class="sr-beneficio">
+            <h3>Mix por região</h3>
+            <p>Sugestão de sortimento com base no giro de lojas parecidas com a sua.</p>
+          </div>
+          <div class="sr-beneficio">
+            <h3>Reposição rápida</h3>
+            <p>Estoque nos centros de distribuição no Brasil para entregas em prazo curto.</p>
+          </div>
+          <div class="sr-beneficio">
+            <h3>Material de ponto de venda</h3>
+            <p>Catálogos, campanhas e peças para vitrine e redes sociais.</p>
+          </div>
+          <div class="sr-beneficio">
+            <h3>Suporte técnico</h3>
+            <p>Fichas técnicas, FISPQ e CA para atender o cliente profissional.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sr-passos">
+      <div class="container">
+        <h2 class="sr-titulo">Como funciona</h2>
+        <ol class="sr-passos-grade">
+          <li class="sr-passo">
+            <span class="sr-passo-num">01</span>
+            <h3>Cadastro</h3>
+            <p>Envie os dados da sua empresa pelo formulário ou WhatsApp.</p>
+          </li>
+          <li class="sr-passo">
+            <span class="sr-passo-num">02</span>
+            <h3>Contato do consultor</h3>
+            <p>Apresentação da tabela, condições e mix recomendado.</p>
+          </li>
+          <li class="sr-passo">
+            <span class="sr-passo-num">03</span>
+            <h3>Primeiro pedido</h3>
+            <p>Montagem do pedido com as linhas de maior giro para a sua região.</p>
+          </li>
+          <li class="sr-passo">
+            <span class="sr-passo-num">04</span>
+            <h3>Reposição</h3>
+            <p>Acompanhamento do sell-out e reposição programada.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="form" class="sr-cadastro">
+      <div class="container">
+        <div class="sr-cadastro-intro">
+          <span class="eyebrow">CADASTRO DE REVENDA</span>
+          <h2 class="sr-titulo">Fale com um consultor</h2>
+          <p>Preencha os dados da sua empresa. Um consultor comercial da sua região entra em contato com a tabela e o mix recomendado.</p>
+        </div>
+
+        <form id="sr-form" class="sr-form">
+          <label class="sr-campo">Razão social
+            <input required type="text" name="razao_social" placeholder="Empresa Ltda." autocomplete="organization">
+          </label>
+          <label class="sr-campo">CNPJ
+            <input required type="text" name="cnpj" placeholder="00.000.000/0000-00" inputmode="numeric">
+          </label>
+          <label class="sr-campo">Nome do responsável
+            <input required type="text" name="responsavel" placeholder="Seu nome" autocomplete="name">
+          </label>
+          <label class="sr-campo">WhatsApp
+            <input required type="tel" name="whatsapp" placeholder="(00) 00000-0000" autocomplete="tel">
+          </label>
+          <label class="sr-campo">E-mail
+            <input required type="email" name="email" placeholder="voce@empresa.com.br" autocomplete="email">
+          </label>
+          <label class="sr-campo">Cidade / UF
+            <input required type="text" name="cidade_uf" placeholder="Cidade – UF">
+          </label>
+          <label class="sr-campo">Segmento
+            <select name="segmento">
+              <option>Loja de material de construção</option>
+              <option>Home center</option>
+              <option>Atacado / distribuidor</option>
+              <option>Ferragista</option>
+              <option>Outro</option>
+            </select>
+          </label>
+          <label class="sr-campo sr-campo-largo">Quais linhas interessam? (opcional)
+            <textarea name="linhas" rows="3" placeholder="Ex.: fixadores, iluminação, ferramentas manuais"></textarea>
+          </label>
+          <button type="submit" class="btn sr-enviar">ENVIAR CADASTRO</button>
+        </form>
+
+        <div id="sr-enviado" class="sr-enviado" role="status" tabindex="-1" hidden>
+          <span class="sr-enviado-titulo">Cadastro recebido.</span>
+          <span class="sr-enviado-texto">Um consultor da sua região vai entrar em contato. Se preferir, adiante a conversa pelo <a href="https://wa.me/5541988597870" target="_blank" rel="noopener">WhatsApp</a>.</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/layout.js"></script>
+  <script src="js/seja-revendedor.js"></script>
+</body>
+</html>

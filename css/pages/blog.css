@@ -1,0 +1,62 @@
+/* Página: Blog do Duráximo */
+.blog-topo {
+  padding-top: clamp(48px, 6vw, 80px); padding-bottom: 32px;
+  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px;
+}
+.blog-intro { display: flex; flex-direction: column; gap: 14px; }
+.blog-intro p { margin: 0; font-size: 17px; line-height: 1.6; color: var(--texto-2); max-width: 560px; }
+
+/* Filtros por tag */
+.blog-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.blog-tags button {
+  height: 42px; padding: 0 16px; cursor: pointer;
+  border: 2px solid rgba(255,255,255,.3); background: transparent; color: var(--texto);
+  font-family: var(--font-cond); font-weight: 700; font-size: 15px; letter-spacing: .06em;
+}
+:root[data-theme="light"] .blog-tags button { border-color: rgba(23,23,23,.3); }
+.blog-tags button[aria-pressed="true"] { background: var(--amarelo); border-color: var(--amarelo); color: var(--preto); }
+
+/* Posts */
+.blog-posts { padding-bottom: clamp(56px, 7vw, 96px); }
+.post-destaque, .post-card {
+  background: var(--card); color: var(--texto);
+  outline: 1px solid var(--card-contorno); outline-offset: -1px;
+}
+.post-destaque:hover, .post-card:hover { background: var(--campo); color: var(--texto); }
+
+.post-destaque {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); margin-bottom: 20px;
+}
+.post-destaque img { width: 100%; height: 100%; min-height: 300px; object-fit: cover; display: block; }
+.post-destaque-info { padding: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; gap: 14px; justify-content: center; }
+.post-destaque .post-tag { font-size: 14px; }
+.post-destaque-titulo { font-family: var(--font-titulo); font-size: clamp(40px, 4vw, 60px); line-height: .95; text-transform: uppercase; }
+.post-destaque .post-texto { font-size: 16px; }
+.post-ver { font-family: var(--font-cond); font-weight: 700; font-size: 16px; letter-spacing: .08em; color: var(--destaque); }
+
+.blog-grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 20px; }
+.post-card { display: flex; flex-direction: column; }
+.post-card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
+.post-card-info { padding: 22px 24px 26px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.post-card-titulo { font-family: var(--font-cond); font-weight: 700; font-size: 24px; line-height: 1.1; }
+
+.post-tag { font-family: var(--font-cond); font-weight: 700; font-size: 13px; letter-spacing: .12em; color: var(--destaque); }
+.post-texto { font-size: 15px; line-height: 1.6; color: var(--texto-2); }
+
+/* Faixa "Siga @duraximo" */
+.blog-siga { background: var(--bg-secao); }
+.blog-siga .container {
+  padding-top: clamp(40px, 5vw, 64px); padding-bottom: clamp(40px, 5vw, 64px);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 24px;
+}
+.blog-siga img { width: 64px; height: 84px; object-fit: cover; object-position: top; background: #FFFFFF; display: block; }
+.blog-siga-texto { flex: 1 1 320px; font-family: var(--font-cond); font-weight: 600; font-size: 22px; line-height: 1.25; }
+.blog-siga-texto strong { color: var(--destaque); }
+
+/* Botão contorno do design (difere do .btn-outline compartilhado: borda 2px e hover próprio) */
+.btn-contorno {
+  border: 2px solid var(--texto); color: var(--texto); padding: 14px 22px;
+  font-family: var(--font-cond); font-weight: 700; font-size: 16px; letter-spacing: .08em;
+}
+.btn-contorno:hover { border-color: var(--amarelo); color: var(--amarelo); }
+:root[data-theme="light"] .btn-contorno:hover { background: var(--amarelo); border-color: #8A6F00; color: var(--preto); }

@@ -1,0 +1,83 @@
+/* Página: Onde comprar */
+.oc-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+/* ---------- Hero com busca ---------- */
+.oc-hero {
+  background-color: var(--bg);
+  background-image: linear-gradient(rgba(var(--overlay),.78), rgba(var(--overlay),.92)), url("../../assets/textures/textura-escura-dourada.png");
+  background-size: cover;
+}
+.oc-hero .container {
+  padding-top: clamp(48px, 6vw, 88px); padding-bottom: clamp(48px, 6vw, 88px);
+  display: flex; flex-direction: column; gap: 20px;
+}
+.oc-hero .display { max-width: 900px; }
+.oc-hero-texto { margin: 0; font-size: 17px; line-height: 1.6; color: var(--texto-2); max-width: 560px; }
+
+.oc-busca { display: flex; flex-wrap: wrap; gap: 10px; max-width: 760px; margin-top: 8px; }
+/* No design os campos usam #2B2D2A (escuro) / #EDEDEA (claro) = --campo-topo */
+.oc-cep, .oc-tipo {
+  height: 60px; background: var(--campo-topo); border: 0; border-radius: 0; color: var(--texto);
+  font-family: var(--font-texto); min-width: 0;
+}
+.oc-cep { flex: 1 1 200px; border-bottom: 3px solid var(--amarelo); padding: 0 18px; font-size: 18px; outline: none; }
+.oc-tipo { flex: 1 1 180px; padding: 0 14px; font-size: 16px; }
+.oc-buscar { height: 60px; padding: 0 28px; font-size: 17px; }
+
+/* ---------- Resultados + mapa ---------- */
+.oc-resultados { background: var(--bg-secao); }
+.oc-resultados .container {
+  padding-top: clamp(40px, 5vw, 72px); padding-bottom: clamp(40px, 5vw, 72px);
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: 24px; align-items: stretch;
+}
+.oc-lista { display: flex; flex-direction: column; gap: 12px; }
+.oc-titulo { margin: 0; font-family: var(--font-cond); font-weight: 700; font-size: 20px; letter-spacing: .04em; }
+.oc-itens { display: flex; flex-direction: column; gap: 12px; }
+.oc-revenda {
+  background: var(--card); outline: 1px solid var(--card-contorno); outline-offset: -1px;
+  padding: 20px 22px; display: flex; flex-direction: column; gap: 6px;
+  border-left: 3px solid var(--amarelo);
+}
+.oc-revenda-tag { font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: var(--texto-3); }
+.oc-revenda-nome { font-family: var(--font-cond); font-weight: 700; font-size: 20px; }
+.oc-revenda-end { font-size: 14px; color: var(--texto-2); }
+.oc-vazio { margin: 0; font-size: 15px; color: var(--texto-2); padding: 20px 0; }
+.oc-nota { font-size: 13px; color: var(--texto-3); line-height: 1.5; }
+
+.oc-mapa {
+  --listra-a: #1E1E1C; --listra-b: #232321;
+  min-height: 380px;
+  background: repeating-linear-gradient(45deg, var(--listra-a) 0 14px, var(--listra-b) 14px 28px);
+  display: flex; align-items: center; justify-content: center;
+  font-family: ui-monospace, Menlo, monospace; font-size: 14px; color: var(--texto-3);
+  border: 1px solid var(--linha-fraca);
+}
+:root[data-theme="light"] .oc-mapa { --listra-a: #ECECE8; --listra-b: #F3F3F0; }
+
+/* ---------- CTAs ---------- */
+.oc-ctas { background: var(--bg); }
+.oc-ctas .container {
+  padding-top: clamp(48px, 6vw, 80px); padding-bottom: clamp(48px, 6vw, 80px);
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 16px;
+}
+.oc-cta { padding: 32px; display: flex; flex-direction: column; gap: 12px; }
+.oc-cta-titulo { font-family: var(--font-titulo); font-size: 44px; line-height: .95; text-transform: uppercase; }
+.oc-cta-texto { font-size: 16px; line-height: 1.55; }
+.oc-cta-botao, .oc-cta-whats {
+  align-self: flex-start; margin-top: 8px;
+  font-family: var(--font-cond); font-weight: 700; font-size: 16px; letter-spacing: .08em;
+}
+
+.oc-cta-amarelo { background: var(--amarelo); color: var(--preto); }
+.oc-cta-botao { background: var(--bg); color: var(--texto); padding: 14px 22px; }
+.oc-cta-botao:hover { color: var(--destaque); }
+
+.oc-cta-card {
+  background: var(--card); border: 1px solid var(--linha-fraca);
+  outline: 1px solid var(--card-contorno); outline-offset: -1px;
+}
+.oc-cta-card .oc-cta-texto { color: var(--texto-2); }
+.oc-cta-whats { border: 2px solid var(--texto); color: var(--texto); padding: 12px 20px; }
+.oc-cta-whats:hover { border-color: var(--amarelo); color: var(--amarelo); }
+:root[data-theme="light"] .oc-cta-whats:hover { background: var(--amarelo); border-color: var(--destaque); color: var(--preto); }

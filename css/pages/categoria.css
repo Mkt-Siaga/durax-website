@@ -1,0 +1,115 @@
+/* Página: Categoria (Painéis LED) */
+
+/* ---------- Topo ---------- */
+.cat-hero {
+  background-image: linear-gradient(rgba(var(--overlay),.82), rgba(var(--overlay),.92)), url("../../assets/textures/textura-escura-dourada.png");
+}
+.cat-hero .container { display: block; }
+.cat-hero .breadcrumb { margin-bottom: 28px; }
+.cat-intro {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: clamp(28px, 4vw, 56px); align-items: center;
+}
+.cat-intro-texto { display: flex; flex-direction: column; gap: 18px; }
+.cat-titulo { font-size: clamp(60px, 7vw, 104px); }
+.cat-intro-texto p { margin: 0; font-size: 17px; line-height: 1.6; color: var(--texto-2); max-width: 560px; }
+/* Fundo claro fixo nos dois temas (foto sobre cinza, como no design) */
+.cat-intro-foto { background: #EDEDEA; display: flex; align-items: center; justify-content: center; padding: 24px; position: relative; }
+.cat-intro-foto .foto { width: min(100%, 380px); display: block; mix-blend-mode: multiply; }
+.cat-intro-foto .bandeira { position: absolute; top: 0; right: 0; width: 56px; }
+
+.cat-guias {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 16px; margin-top: clamp(32px, 4vw, 48px);
+}
+.cat-guia {
+  border-top: 3px solid var(--amarelo); background: rgba(255,255,255,.04);
+  padding: 20px 22px; display: flex; flex-direction: column; gap: 8px;
+}
+:root[data-theme="light"] .cat-guia { background: rgba(23,23,23,.04); }
+.cat-guia-titulo { font-family: var(--font-cond); font-weight: 700; font-size: 18px; letter-spacing: .06em; }
+.cat-guia-texto { font-size: 15px; line-height: 1.55; color: var(--texto-2); }
+.cat-guia-texto strong { color: var(--texto); }
+
+/* ---------- Listagem ---------- */
+.cat-listagem { background: var(--bg-secao); }
+.cat-listagem > .container {
+  padding-top: clamp(32px, 4vw, 56px); padding-bottom: clamp(56px, 7vw, 96px);
+  display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start;
+}
+
+.link-limpar {
+  background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline;
+  color: var(--destaque); font-family: var(--font-texto); font-size: 13px;
+}
+.link-limpar:hover { color: var(--destaque-hover); }
+.link-limpar[hidden] { display: none; }
+
+.filtros { flex: 1 1 240px; display: flex; flex-direction: column; gap: 28px; }
+.filtros-topo { display: flex; align-items: center; justify-content: space-between; }
+.filtros-rotulo { font-family: var(--font-cond); font-weight: 700; font-size: 18px; letter-spacing: .12em; }
+.facetas { display: flex; flex-direction: column; gap: 28px; }
+.faceta {
+  display: flex; flex-direction: column; gap: 10px; padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+:root[data-theme="light"] .faceta { border-top-color: rgba(23,23,23,.12); }
+.faceta-rotulo { font-family: var(--font-cond); font-weight: 700; font-size: 14px; letter-spacing: .14em; color: var(--texto-3); }
+.opcao {
+  display: flex; align-items: center; gap: 12px; width: 100%; background: none; border: 0; padding: 4px 0;
+  cursor: pointer; color: var(--texto); font-family: var(--font-texto); font-size: 15px; text-align: left; min-height: 32px;
+}
+.opcao-caixa {
+  width: 18px; height: 18px; border: 2px solid var(--texto-3); background: transparent;
+  display: flex; align-items: center; justify-content: center; flex: none;
+}
+.opcao-caixa svg { display: none; }
+.opcao[aria-pressed="true"] .opcao-caixa { border-color: var(--amarelo); background: var(--amarelo); }
+.opcao[aria-pressed="true"] .opcao-caixa svg { display: block; }
+.opcao-nome { flex: 1; }
+.opcao-qtd { color: var(--texto-3); font-size: 13px; }
+.opcao:focus-visible, .chip:focus-visible { outline: 2px solid var(--amarelo); outline-offset: 2px; }
+
+.cat-resultados { flex: 999 1 560px; display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.cat-resultados-topo { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.cat-total { font-size: 15px; color: var(--texto-2); }
+.cat-total strong { color: var(--texto); }
+.ordenar { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--texto-2); }
+.ordenar select {
+  height: 40px; background: var(--campo); color: var(--texto); border: 0; padding: 0 12px;
+  font-family: var(--font-texto); font-size: 14px;
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips[hidden] { display: none; }
+.chip {
+  background: var(--amarelo); color: var(--preto); border: 0; padding: 6px 10px; cursor: pointer;
+  font-family: var(--font-cond); font-weight: 700; font-size: 14px; letter-spacing: .04em;
+}
+.chip:hover { background: var(--amarelo-hover); }
+
+.cat-grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 16px; }
+.painel {
+  background: var(--card); color: var(--texto); display: flex; flex-direction: column;
+  outline: 1px solid var(--card-contorno); outline-offset: -1px;
+  border-bottom: 3px solid var(--card); transition: border-color .15s;
+}
+.painel:hover { border-bottom-color: var(--destaque); color: var(--texto); }
+.painel-foto {
+  background: #EDEDEA; aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; padding: 16px;
+}
+.painel-foto img { max-width: 100%; max-height: 100%; object-fit: contain; mix-blend-mode: multiply; display: block; }
+.painel-info { padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.painel-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag-forte { background: var(--amarelo); color: var(--preto); padding: 2px 8px; font-family: var(--font-cond); font-weight: 700; font-size: 14px; }
+.tag {
+  border: 1px solid rgba(255,255,255,.3); padding: 1px 8px;
+  font-family: var(--font-cond); font-weight: 600; font-size: 14px;
+}
+:root[data-theme="light"] .tag { border-color: rgba(23,23,23,.3); }
+.painel-nome { font-family: var(--font-cond); font-weight: 600; font-size: 19px; line-height: 1.15; }
+.painel-ean { margin-top: auto; font-size: 12px; color: var(--texto-3); }
+
+.cat-vazio { border: 1px dashed var(--linha-tracejada); padding: 32px; text-align: center; color: var(--texto-2); }
+.cat-vazio[hidden] { display: none; }
+.cat-vazio .link-limpar { font-size: 15px; }

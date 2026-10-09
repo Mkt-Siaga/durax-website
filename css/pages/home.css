@@ -1,0 +1,213 @@
+/* Página: Home */
+
+/* ---------- Peças reutilizadas na página ---------- */
+.home-sr {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.home-acoes { display: flex; flex-wrap: wrap; gap: 12px; }
+.home-btn {
+  display: inline-block; border: 0; cursor: pointer;
+  background: var(--amarelo); color: var(--preto); padding: 18px 28px;
+  font-family: var(--font-cond); font-weight: 700; font-size: 17px; letter-spacing: .08em; text-transform: uppercase;
+}
+.home-btn:hover { background: var(--amarelo-hover); color: var(--preto); }
+.home-btn-contorno {
+  display: inline-block; border: 2px solid var(--texto); color: var(--texto); padding: 16px 26px;
+  font-family: var(--font-cond); font-weight: 700; font-size: 17px; letter-spacing: .08em; text-transform: uppercase;
+}
+.home-btn-contorno:hover { border-color: var(--amarelo); color: var(--amarelo); }
+:root[data-theme="light"] .home-btn-contorno:hover { background: var(--amarelo); border-color: var(--destaque); color: var(--preto); }
+.home-link { font-family: var(--font-cond); font-weight: 700; font-size: 16px; letter-spacing: .08em; }
+.home-h2 {
+  margin: 0; font-family: var(--font-titulo); font-weight: 400;
+  font-size: clamp(44px, 5vw, 72px); line-height: .95; text-transform: uppercase;
+}
+.home-h2-menor { font-size: clamp(44px, 5vw, 64px); }
+.home-cab-titulo { display: flex; flex-direction: column; gap: 10px; }
+
+/* ---------- Hero ---------- */
+.home-hero {
+  position: relative; background-color: var(--bg);
+  background-image:
+    linear-gradient(90deg, rgba(var(--overlay),.92) 0%, rgba(var(--overlay),.7) 55%, rgba(var(--overlay),.35) 100%),
+    url("../../assets/textures/textura-escura-dourada.png");
+  background-size: cover; background-position: center;
+}
+.home-hero .container {
+  padding-top: clamp(48px, 7vw, 96px); padding-bottom: clamp(48px, 7vw, 96px);
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
+  gap: clamp(32px, 5vw, 72px); align-items: center;
+}
+.home-hero-texto { display: flex; flex-direction: column; gap: 24px; }
+.home-hero h1 {
+  margin: 0; font-family: var(--font-titulo); font-weight: 400;
+  font-size: clamp(64px, 9vw, 136px); line-height: .88; text-transform: uppercase;
+}
+.home-hero-destaque { color: var(--destaque); }
+:root[data-theme="light"] .home-hero-destaque { color: inherit; background: var(--amarelo); padding: 0 .06em; }
+.home-hero p {
+  margin: 0; max-width: 520px; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6;
+  color: var(--texto-2); text-wrap: pretty;
+}
+.home-hero .home-acoes { margin-top: 8px; }
+.home-hero-foto { position: relative; }
+.home-hero-foto .foto { width: 100%; aspect-ratio: 5 / 4; object-fit: cover; object-position: 75% 60%; display: block; }
+.home-hero-foto .bandeira { position: absolute; top: 0; right: 0; width: clamp(56px, 7vw, 96px); display: block; }
+.home-hero-foto .selo {
+  position: absolute; left: 0; bottom: 0; background: var(--amarelo); color: var(--preto); padding: 14px 20px;
+  font-family: var(--font-cond); font-weight: 700; font-size: 15px; letter-spacing: .06em; text-transform: uppercase;
+}
+
+/* ---------- Públicos ---------- */
+.home-publicos { background: var(--bg); }
+.home-publicos .container {
+  padding-top: clamp(48px, 6vw, 80px); padding-bottom: clamp(48px, 6vw, 80px);
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px;
+}
+.publico {
+  background: var(--card); color: var(--texto); padding: 36px 32px; min-height: 240px;
+  display: flex; flex-direction: column; gap: 14px;
+  border: 1px solid var(--linha-fraca); outline: 1px solid var(--card-contorno); outline-offset: -1px;
+}
+.publico:hover { background: var(--campo); color: var(--texto); }
+.publico-rotulo { font-family: var(--font-cond); font-weight: 700; font-size: 13px; letter-spacing: .18em; color: var(--destaque); }
+.publico-titulo { font-family: var(--font-titulo); font-size: 44px; line-height: .95; text-transform: uppercase; }
+.publico-texto { font-size: 16px; line-height: 1.55; color: var(--texto-2); }
+.publico-cta { margin-top: auto; font-family: var(--font-cond); font-weight: 700; font-size: 16px; letter-spacing: .08em; color: var(--destaque); }
+.publico.publico-amarelo { background: var(--amarelo); color: var(--preto); border: 0; outline: 0; }
+.publico.publico-amarelo:hover { background: var(--amarelo-hover); color: var(--preto); }
+.publico-amarelo .publico-rotulo,
+.publico-amarelo .publico-texto,
+.publico-amarelo .publico-cta { color: var(--preto); }
+
+/* ---------- Categorias ---------- */
+.home-categorias { background: var(--bg-secao); }
+.home-categorias .container { padding-top: clamp(56px, 7vw, 96px); padding-bottom: clamp(56px, 7vw, 96px); }
+.home-cab {
+  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+  gap: 16px; margin-bottom: 36px;
+}
+.home-cat-grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: 12px; }
+.home-cat {
+  background: #F8F8F7; color: var(--preto); padding: 20px 18px 18px;
+  display: flex; flex-direction: column; gap: 12px; border-bottom: 4px solid #F8F8F7;
+}
+.home-cat:hover { border-bottom-color: var(--destaque); color: var(--preto); }
+.home-cat img { width: 100%; height: 90px; object-fit: contain; mix-blend-mode: multiply; display: block; }
+.home-cat span {
+  font-family: var(--font-cond); font-weight: 700; font-size: 16px; line-height: 1.15;
+  letter-spacing: .04em; text-transform: uppercase; min-height: 37px;
+}
+
+/* ---------- Lançamentos ---------- */
+.home-novidades { background: var(--bg); }
+.home-novidades .container { padding-top: clamp(56px, 7vw, 96px); padding-bottom: clamp(56px, 7vw, 96px); }
+.home-novidades .home-h2 { margin: 10px 0 36px; }
+.novidades-grade { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 20px; }
+.novidade {
+  background: var(--card); color: var(--texto); display: flex; flex-direction: column;
+  outline: 1px solid var(--card-contorno); outline-offset: -1px;
+}
+.novidade:hover { background: var(--campo); color: var(--texto); }
+.novidade-foto { background: #EDEDEA; aspect-ratio: 3 / 2; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.novidade-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.novidade-info { padding: 24px 26px 28px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.novidade-tag {
+  align-self: flex-start; background: var(--amarelo); color: var(--preto); padding: 4px 10px;
+  font-family: var(--font-cond); font-weight: 700; font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+}
+.novidade-titulo { font-family: var(--font-cond); font-weight: 700; font-size: 28px; line-height: 1.05; }
+.novidade-texto { font-size: 15px; line-height: 1.6; color: var(--texto-2); }
+.novidade-cta { margin-top: auto; padding-top: 8px; font-family: var(--font-cond); font-weight: 700; font-size: 15px; letter-spacing: .08em; color: var(--destaque); }
+
+/* ---------- Por que Durax (faixa amarela) ---------- */
+.home-provas {
+  background-color: var(--amarelo); background-image: url("../../assets/textures/textura-amarela.png");
+  background-size: cover; color: var(--preto);
+}
+:root[data-theme="light"] .home-provas { background-color: var(--destaque); }
+.home-provas .container {
+  padding-top: clamp(48px, 6vw, 80px); padding-bottom: clamp(48px, 6vw, 80px);
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 32px;
+}
+.provas-titulo { display: flex; flex-direction: column; gap: 8px; }
+.provas-rotulo { font-family: var(--font-cond); font-weight: 700; font-size: 14px; letter-spacing: .18em; }
+.provas-chamada { font-family: var(--font-titulo); font-size: clamp(40px, 4vw, 56px); line-height: .95; text-transform: uppercase; }
+.prova { border-top: 3px solid var(--preto); padding-top: 18px; display: flex; flex-direction: column; gap: 8px; }
+.prova-t { font-family: var(--font-cond); font-weight: 700; font-size: 22px; text-transform: uppercase; letter-spacing: .02em; }
+.prova-d { font-size: 15px; line-height: 1.55; }
+
+/* ---------- Banners ---------- */
+.home-banners { background: var(--bg); }
+.home-banners .container {
+  padding-top: clamp(56px, 7vw, 96px); padding-bottom: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 20px;
+}
+.home-banners img { width: 100%; aspect-ratio: 2 / 1; object-fit: cover; display: block; }
+
+/* ---------- Catálogo 2026 ---------- */
+.home-catalogo { background: var(--bg); }
+.home-catalogo .container {
+  padding-top: clamp(56px, 7vw, 96px); padding-bottom: clamp(56px, 7vw, 96px);
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: clamp(32px, 5vw, 64px); align-items: center;
+}
+.catalogo-texto { display: flex; flex-direction: column; gap: 20px; }
+.catalogo-texto h2 {
+  margin: 0; font-family: var(--font-titulo); font-weight: 400;
+  font-size: clamp(52px, 6vw, 88px); line-height: .9; text-transform: uppercase;
+}
+.catalogo-texto p { margin: 0; font-size: 17px; line-height: 1.6; color: var(--texto-2); max-width: 480px; }
+.catalogo-capas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.catalogo-capas a { display: block; }
+.catalogo-capas a:hover { opacity: .85; }
+.catalogo-capas img { width: 100%; aspect-ratio: 7 / 10; object-fit: cover; display: block; }
+
+/* ---------- Onde comprar (CEP) ---------- */
+.home-cep { background: var(--bg-secao); }
+.home-cep .container {
+  padding-top: clamp(48px, 6vw, 80px); padding-bottom: clamp(48px, 6vw, 80px);
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 32px; align-items: center;
+}
+.home-cep .home-cab-titulo { gap: 12px; }
+.cep-form { display: flex; flex-wrap: wrap; gap: 10px; }
+.cep-form input {
+  flex: 1 1 220px; min-width: 0; height: 58px; background: var(--campo-topo); border: 0; border-bottom: 3px solid var(--amarelo);
+  color: var(--texto); padding: 0 18px; font-family: var(--font-texto); font-size: 17px; outline: none;
+}
+.cep-form .home-btn { height: 58px; padding: 0 28px; }
+
+/* ---------- Blog do Duráximo ---------- */
+.home-blog { background: var(--bg); }
+.home-blog .container { padding-top: clamp(48px, 6vw, 72px); padding-bottom: clamp(48px, 6vw, 72px); }
+.blog-faixa {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 28px;
+  border: 1px solid rgba(255,255,255,.12); padding: 24px 28px;
+}
+:root[data-theme="light"] .blog-faixa { border-color: rgba(23,23,23,.12); }
+.blog-faixa img { width: 72px; height: 96px; object-fit: cover; object-position: top; background: #FFFFFF; display: block; }
+.blog-faixa-texto { flex: 1 1 320px; display: flex; flex-direction: column; gap: 6px; }
+.blog-rotulo { font-family: var(--font-cond); font-weight: 700; font-size: 13px; letter-spacing: .18em; color: var(--destaque); }
+.blog-chamada { font-family: var(--font-cond); font-weight: 600; font-size: 22px; line-height: 1.25; }
+
+/* ---------- Newsletter ---------- */
+.home-news { background: var(--bg-secao); border-top: 1px solid var(--linha-fraca); }
+.home-news .container {
+  padding-top: clamp(48px, 6vw, 72px); padding-bottom: clamp(48px, 6vw, 72px);
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 32px; align-items: center;
+}
+.news-texto { display: flex; flex-direction: column; gap: 10px; }
+.news-titulo { font-family: var(--font-cond); font-weight: 700; font-size: 28px; line-height: 1.1; text-transform: uppercase; }
+.news-sub { font-size: 15px; color: var(--texto-2); line-height: 1.5; }
+.news-form { display: flex; flex-wrap: wrap; gap: 10px; }
+.news-form input, .news-form select {
+  height: 54px; min-width: 0; background: var(--campo-topo); border: 0; color: var(--texto);
+  padding: 0 16px; font-family: var(--font-texto); font-size: 15px; outline: none;
+}
+.news-form input { flex: 1 1 160px; }
+.news-form input[type="email"] { flex: 1 1 200px; }
+.news-form select { flex: 1 1 160px; padding: 0 14px; }
+.news-form .home-btn { height: 54px; padding: 0 24px; font-size: 16px; }
+.news-ok { border-left: 4px solid var(--amarelo); padding: 12px 18px; font-size: 16px; }
+.news-ok[hidden] { display: none; }

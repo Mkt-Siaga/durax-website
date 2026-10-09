@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel LED — Durax</title>
+  <meta name="description" content="Painel LED Durax: variações de formato, instalação, potência e temperatura de cor, especificações e downloads.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&family=League+Gothic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/produto.css">
+  <script src="js/tema.js"></script>
+</head>
+<body>
+  <header id="site-header" data-ativo="produtos"></header>
+
+  <main>
+    <section class="container prod-topo">
+      <nav class="breadcrumb" aria-label="Você está em">
+        <a href="index.html">Início</a><span>/</span><a href="produtos.html#cat=4">Iluminação e elétrica</a><span>/</span><a href="categoria.html">Painéis LED</a><span>/</span><span aria-current="page" data-nome></span>
+      </nav>
+      <div class="prod-grid">
+        <div class="galeria">
+          <div class="galeria-principal">
+            <img id="foto-principal" class="galeria-foto" src="assets/site/painel-led.png" alt="">
+            <div id="slot-principal" class="galeria-slot" hidden></div>
+            <img class="bandeira" src="assets/brand/bandeira-canto.png" alt="">
+          </div>
+          <div id="miniaturas" class="miniaturas"></div>
+        </div>
+
+        <div class="prod-info">
+          <span class="eyebrow">ILUMINAÇÃO LED · PAINÉIS</span>
+          <h1 class="prod-titulo" data-nome></h1>
+          <div class="prod-codigos">
+            <span>Código: <span>a informar</span></span><span>EAN: <span>a informar</span></span><span>DUN (caixa master): <span>a informar</span></span>
+          </div>
+          <p id="resumo" class="prod-resumo"></p>
+
+          <div id="variacoes" class="variacoes"></div>
+
+          <div class="garantia">
+            <span class="garantia-icone"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#171717" stroke-width="2.4" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/><polyline points="8,12 11,15 16,9"/></svg></span>
+            <span class="garantia-texto"><strong>Garantia Durax.</strong> Prazo informado na embalagem. Lote inspecionado na fábrica antes do embarque.</span>
+          </div>
+
+          <div class="prod-ctas">
+            <a class="cta-onde" href="onde-comprar.html">ONDE COMPRAR</a>
+            <a id="cta-revenda" class="cta-revenda" href="https://wa.me/5541988597870" target="_blank" rel="noopener">COMPRAR PARA REVENDA</a>
+          </div>
+
+          <div class="downloads">
+            <!-- TODO: trocar "#" pelos PDFs reais quando existirem -->
+            <a href="#"><span>Ficha técnica</span><span class="downloads-pdf">PDF ↓</span></a>
+            <a href="#"><span>Manual de instalação</span><span class="downloads-pdf">PDF ↓</span></a>
+            <a href="#"><span>Certificado de conformidade</span><span class="downloads-pdf">PDF ↓</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="prod-detalhes">
+      <div class="container">
+        <div class="specs">
+          <h2 class="prod-h2">Especificações</h2>
+          <dl id="specs" class="specs-lista"></dl>
+        </div>
+        <div class="abas-bloco">
+          <div id="abas" class="abas" role="tablist" aria-label="Informações do produto"></div>
+          <div id="aba-corpo" class="aba-corpo" role="tabpanel"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container prod-relacionados">
+      <div class="relacionados-topo">
+        <h2 class="prod-h2">Outros painéis</h2>
+        <a class="ver-todos" href="categoria.html">VER TODOS →</a>
+      </div>
+      <div id="relacionados" class="relacionados-grade"></div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/layout.js"></script>
+  <script src="js/paineis.js"></script>
+  <script src="js/produto.js"></script>
+</body>
+</html>

@@ -1,23 +1,44 @@
 # Durax Website
 
-Site institucional da Durax (Grupo Siaga). HTML, CSS e JavaScript puros — sem build.
+Site institucional e catálogo da Durax (Grupo Siaga). HTML, CSS e JavaScript puros — sem build, sem dependências.
+Base: handoff do Claude Design "Site Durax v2" (8 páginas, temas escuro e claro).
+
+## Páginas
+
+| Arquivo | Página |
+|---|---|
+| `index.html` | Home |
+| `produtos.html` | Catálogo completo (busca + filtro por categoria, `#cat=N`, `#q=termo`) |
+| `categoria.html` | Painéis LED com filtros |
+| `produto.html` | Página de produto (`#p=N`) |
+| `onde-comprar.html` | Busca de revendas (`#cep=`) |
+| `seja-revendedor.html` | Benefícios + formulário de cadastro |
+| `blog.html` | Blog Duráximo com filtro por tag |
+| `sobre.html` | Sobre a marca |
 
 ## Estrutura
 
 ```
-index.html          Redireciona para produtos.html (até a Home ficar pronta)
-produtos.html       Catálogo com busca e filtro por categoria
-css/styles.css      Estilos e cores da marca (variáveis em :root)
-js/layout.js        Cabeçalho, mega menu e rodapé compartilhados
-js/catalogo.js      Dados do catálogo (window.DURAX_CATALOGO)
-js/produtos.js      Lógica da página de produtos
-assets/produtos/    Fotos dos produtos (.webp)
-assets/site/        Ícones de categoria e textura do topo
+css/styles.css        Tokens de tema (escuro padrão, [data-theme="light"] claro) e componentes compartilhados
+css/pages/*.css       Estilos de cada página
+js/tema.js            Aplica o tema salvo antes de desenhar (carregar no <head>)
+js/layout.js          Cabeçalho, mega menu, botão de tema, WhatsApp flutuante e rodapé
+js/catalogo.js        Dados do catálogo (window.DURAX_CATALOGO)
+js/paineis.js         Dados dos painéis LED (window.DURAX_PAINEIS)
+js/<pagina>.js        Lógica de cada página
+assets/               logo, produtos, site, textures, brand, catalogo (PDF)
 ```
+
+Regra: páginas usam só as variáveis de cor de `styles.css` (`--bg`, `--texto`, `--destaque`…), assim os dois temas funcionam sem CSS duplicado.
+
+## Rodar localmente
+
+Qualquer servidor estático na pasta (abrir via `file://` também funciona na maioria dos navegadores).
 
 ## Pendências
 
-- `assets/logo/` — logo oficial (hoje o cabeçalho usa o texto "DURAX")
-- `assets/catalogo/catalogo-durax-2026.pdf` — PDF do catálogo (links "Ver no catálogo")
-- Páginas ainda não criadas: Home, Categoria, Onde comprar, Blog, Sobre, Seja revendedor
-- Links de redes sociais e suporte técnico (`href="#"`)
+- **Formulários sem envio** (Seja revendedor, newsletter da Home): marcados com `// TODO: integrar envio`.
+- **Dados placeholder:** revendas em `js/onde-comprar.js`; posts do blog em `js/blog.js`; códigos/EAN/medidas dos painéis aparecem como "a informar".
+- **Fotos:** 102 produtos do catálogo sem foto (usam o ícone da categoria); painéis LED usam todos a mesma foto.
+- Links ainda sem destino (`href="#"`): redes sociais, área do revendedor, suporte técnico (FISPQ, CA, manuais), downloads da página de produto, páginas legais.
+- O índice do PDF cita até a pág. 135, mas o arquivo tem 126; números de página podem estar defasados.

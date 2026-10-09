@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painéis LED — Durax</title>
+  <meta name="description" content="Painéis LED Durax: redondos ou quadrados, de embutir ou sobrepor, em 3000K, 4000K e 6500K. Filtre por formato, potência e temperatura de cor.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&family=League+Gothic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/categoria.css">
+  <script src="js/tema.js"></script>
+</head>
+<body>
+  <header id="site-header" data-ativo="produtos"></header>
+
+  <main>
+    <section class="page-hero cat-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Você está em">
+          <a href="index.html">Início</a><span>/</span><a href="produtos.html">Produtos</a><span>/</span><a href="produtos.html#cat=4">Iluminação e elétrica</a><span>/</span><span aria-current="page">Painéis LED</span>
+        </nav>
+        <div class="cat-intro">
+          <div class="cat-intro-texto">
+            <span class="eyebrow">ILUMINAÇÃO LED</span>
+            <h1 class="display cat-titulo">Painéis LED</h1>
+            <p>Os Painéis Durax adaptam-se com precisão às necessidades do seu ambiente. Escolha a variação perfeita para o seu projeto.</p>
+          </div>
+          <div class="cat-intro-foto">
+            <img class="foto" src="assets/site/painel-led.png" alt="Painéis LED Durax">
+            <img class="bandeira" src="assets/brand/bandeira-canto.png" alt="">
+          </div>
+        </div>
+        <div class="cat-guias">
+          <div class="cat-guia">
+            <span class="cat-guia-titulo">FORMATO</span>
+            <span class="cat-guia-texto">Quadrado ou redondo.</span>
+          </div>
+          <div class="cat-guia">
+            <span class="cat-guia-titulo">INSTALAÇÃO</span>
+            <span class="cat-guia-texto"><strong>Embutir:</strong> para rebaixamentos de gesso, com acabamento totalmente plano e discreto.<br><strong>Sobrepor:</strong> para lajes e superfícies diretas, sem recuo, mantendo a linha slim.</span>
+          </div>
+          <div class="cat-guia">
+            <span class="cat-guia-titulo">TEMPERATURA DE COR</span>
+            <span class="cat-guia-texto"><strong>3000K quente:</strong> salas, quartos e descanso.<br><strong>4000K neutro:</strong> cozinhas, banheiros e camarins.<br><strong>6500K frio:</strong> escritórios, lavanderias e áreas de serviço.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cat-listagem">
+      <div class="container">
+        <aside class="filtros" aria-label="Filtros">
+          <div class="filtros-topo">
+            <span class="filtros-rotulo">FILTROS</span>
+            <button type="button" class="link-limpar" data-limpar hidden>Limpar</button>
+          </div>
+          <div id="facetas" class="facetas"></div>
+        </aside>
+
+        <div class="cat-resultados">
+          <div class="cat-resultados-topo">
+            <span class="cat-total" aria-live="polite"><strong id="total">0</strong> produtos</span>
+            <label class="ordenar">Ordenar por
+              <select id="ordenar">
+                <option value="rel">Relevância</option><option value="up">Menor potência</option><option value="down">Maior potência</option>
+              </select>
+            </label>
+          </div>
+          <div id="chips" class="chips" hidden></div>
+          <div id="grade" class="cat-grade"></div>
+          <div id="vazio" class="cat-vazio" hidden>Nenhum painel com essa combinação. <button type="button" class="link-limpar" data-limpar>Limpar filtros</button></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/layout.js"></script>
+  <script src="js/paineis.js"></script>
+  <script src="js/categoria.js"></script>
+</body>
+</html>

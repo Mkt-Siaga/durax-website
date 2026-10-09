@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Onde comprar — Durax</title>
+  <meta name="description" content="Encontre lojas de material de construção, home centers e atacados que vendem produtos Durax na sua região.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&family=League+Gothic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/onde-comprar.css">
+  <script src="js/tema.js"></script>
+</head>
+<body>
+  <header id="site-header" data-ativo="onde"></header>
+
+  <main>
+    <section class="oc-hero">
+      <div class="container">
+        <span class="eyebrow">ONDE COMPRAR</span>
+        <h1 class="display">Encontre Durax perto de você</h1>
+        <p class="oc-hero-texto">Digite seu CEP para ver lojas de material de construção, home centers e atacados que vendem produtos Durax na sua região.</p>
+        <form id="oc-busca" class="oc-busca" role="search">
+          <label class="oc-sr" for="oc-cep">CEP</label>
+          <input id="oc-cep" class="oc-cep" type="text" placeholder="00000-000" inputmode="numeric" autocomplete="postal-code">
+          <label class="oc-sr" for="oc-tipo">Tipo de revenda</label>
+          <select id="oc-tipo" class="oc-tipo">
+            <option>Todos os tipos</option>
+            <option>Loja de material de construção</option>
+            <option>Home center</option>
+            <option>Atacado / distribuidor</option>
+          </select>
+          <button type="submit" class="btn oc-buscar">BUSCAR</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="oc-resultados">
+      <div class="container">
+        <div class="oc-lista">
+          <h2 id="oc-titulo" class="oc-titulo">Revendas próximas</h2>
+          <div id="oc-itens" class="oc-itens" aria-live="polite"></div>
+          <span class="oc-nota">Lista de exemplo. A busca será conectada à base de revendas Durax.</span>
+        </div>
+        <div class="oc-mapa" aria-hidden="true">mapa de revendas</div>
+      </div>
+    </section>
+
+    <section class="oc-ctas">
+      <div class="container">
+        <div class="oc-cta oc-cta-amarelo">
+          <span class="oc-cta-titulo">Sua loja vende Durax?</span>
+          <span class="oc-cta-texto">Cadastre sua loja para aparecer nesta busca e receber clientes da sua região.</span>
+          <a class="oc-cta-botao" href="seja-revendedor.html">CADASTRAR MINHA LOJA</a>
+        </div>
+        <div class="oc-cta oc-cta-card">
+          <span class="oc-cta-titulo">Não achou na sua cidade?</span>
+          <span class="oc-cta-texto">Fale com a gente pelo WhatsApp e indicamos o ponto de venda mais próximo.</span>
+          <a class="oc-cta-whats" href="https://wa.me/5541988597870" target="_blank" rel="noopener">CHAMAR NO WHATSAPP</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/layout.js"></script>
+  <script src="js/onde-comprar.js"></script>
+</body>
+</html>

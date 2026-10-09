@@ -6,6 +6,7 @@
     inicio: 'index.html',
     produtos: 'produtos.html',
     categoria: 'categoria.html',
+    produto: 'produto.html',
     onde: 'onde-comprar.html',
     blog: 'blog.html',
     sobre: 'sobre.html',
@@ -32,7 +33,13 @@
     ['Ferragens', 'r5', 11],
     ['Brindes e diversos', 'r6', 12]
   ];
-  const LOGO = '<a href="' + PAGINAS.inicio + '" class="logo" aria-label="Durax">DURA<span>X</span></a>';
+  const LOGO = '<a href="' + PAGINAS.inicio + '" class="logo">' +
+    '<img class="so-escuro" src="assets/logo/durax-logo-branco.png" alt="Durax">' +
+    '<img class="so-claro" src="assets/logo/durax-logo-preto.png" alt="Durax"></a>';
+  const LOGO_RODAPE = '<img src="assets/logo/durax-logo-branco.png" alt="Durax">';
+  const ICONE_TEMA = '<svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13Z" fill="currentColor"/></svg>';
+  const temaAtual = () => document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  const rotuloTema = () => temaAtual() === 'light' ? 'Modo escuro' : 'Modo claro';
   const LUPA = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D8D8D3" stroke-width="2.2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.5" y1="15.5" x2="21" y2="21"/></svg>';
   const SETA = '<svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><polyline points="2,3.5 5,6.5 8,3.5"/></svg>';
 
@@ -50,6 +57,7 @@
         '<span><strong>Seu estoque sempre cheio com a Durax.</strong> Receba seus pedidos em tempo recorde. ' +
         '<a class="cta" href="' + PAGINAS.revendedor + '">Garanta seu estoque</a></span>' +
         '<span class="topbar-links"><a href="' + WHATSAPP + '" target="_blank" rel="noopener">WhatsApp (41) 98859-7870</a><a href="#">Área do revendedor</a></span>' +
+        '<button class="tema-toggle" type="button" aria-label="Alternar tema">' + ICONE_TEMA + '<span>' + rotuloTema() + '</span></button>' +
       '</div></div>' +
       '<div class="navbar"><div class="container">' + LOGO +
         '<nav class="nav" aria-label="Principal">' + nav + '</nav>' +
@@ -62,7 +70,7 @@
       '<div class="mega"><div class="container">' +
         '<div class="mega-cats">' + mega + '</div>' +
         '<div class="mega-promo"><span class="eyebrow">CATÁLOGO 2026</span><strong>Toda a linha Durax em um arquivo</strong>' +
-        '<a class="btn" href="assets/catalogo/catalogo-durax-2026.pdf" target="_blank">Baixar catálogo</a></div>' +
+        '<a class="btn" href="' + PAGINAS.inicio + '#catalogo">Baixar catálogo</a></div>' +
       '</div></div>' +
       '<div class="menu-mobile">' + NAV.map(n => '<a href="' + PAGINAS[n.k] + '">' + n.label + '</a>').join('') +
         '<a class="btn" href="' + PAGINAS.revendedor + '">Seja revendedor</a></div>';
@@ -72,6 +80,14 @@
       el.classList.toggle('mega-aberto', a.hasAttribute('data-mega'))));
     el.addEventListener('mouseleave', fecharMega);
     el.querySelectorAll('.mega a').forEach(a => a.addEventListener('click', fecharMega));
+    const btnTema = el.querySelector('.tema-toggle');
+    btnTema.addEventListener('click', () => {
+      const novo = temaAtual() === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', novo);
+      try { localStorage.setItem('durax-tema', novo); } catch (e) {}
+      btnTema.querySelector('span').textContent = rotuloTema();
+      document.dispatchEvent(new CustomEvent('durax:tema', { detail: novo }));
+    });
     const toggle = el.querySelector('.menu-toggle');
     toggle.addEventListener('click', () => {
       const aberto = el.classList.toggle('mobile-aberto');
@@ -92,7 +108,7 @@
     el.className = 'site-footer';
     el.innerHTML =
       '<div class="container footer-grid">' +
-        '<div class="footer-col footer-marca">' + LOGO +
+        '<div class="footer-col footer-marca">' + LOGO_RODAPE +
           '<p>Ferramentas e materiais para construção civil, com qualidade inspecionada na fábrica e estoque no Brasil.</p>' +
           '<div class="redes"><a href="#">INSTAGRAM</a><a href="#">LINKEDIN</a><a href="#">YOUTUBE</a></div></div>' +
         col('PRODUTOS', [
@@ -110,7 +126,7 @@
       '<div class="footer-base"><div class="container">' +
         '<span>© Durax 2025–2026</span>' +
         '<nav><a href="#">Privacidade</a><a href="#">Política de cookies</a><a href="#">Termos de uso</a><a href="#">Código de ética</a></nav>' +
-        '<span class="siaga">UMA MARCA <b>SIAGA CORP</b></span>' +
+        '<span class="siaga">UMA MARCA <span><img src="assets/site/siaga.png" alt="Siaga Corp"></span></span>' +
       '</div></div>';
   }
 
