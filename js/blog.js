@@ -12,7 +12,7 @@
     { img: 'assets/site/post2.png', tag: '#DicaDoDuráximo', title: 'Quando usar cada bloco ou tijolo', text: 'Bloco de concreto, cerâmico ou tijolo maciço: onde cada um rende mais na obra.' },
     { img: 'assets/site/blog1.png', tag: 'Quiz', title: 'Qual a principal função de uma arruela?', text: 'Teste seus conhecimentos e responda nos comentários do post.' },
     { img: 'assets/site/card3.png', tag: 'Quiz', title: 'O que levou a broca do Duráximo a quebrar?', text: 'Veja as alternativas e descubra o erro mais comum na hora de furar.' },
-    { img: 'assets/site/duraximo.png', tag: 'Quiz', title: 'Qual a ferramenta mais utilizada em seus projetos?', text: 'Conte para o Duráximo qual ferramenta não sai da sua caixa.' },
+    { img: 'assets/site/duraximo.webp', tag: 'Quiz', title: 'Qual a ferramenta mais utilizada em seus projetos?', text: 'Conte para o Duráximo qual ferramenta não sai da sua caixa.' },
     { img: 'assets/site/card1.png', tag: 'Produtos', title: 'Fita isolante autofusão', text: 'Vedação e resistência para emendas elétricas. Com Durax, a obra rende!' },
     { img: 'assets/site/hero.png', tag: 'Produtos', title: 'Eletrodos Durax', text: 'Feitos para durar, prontos para soldar.' },
     { img: 'assets/site/card3.png', tag: 'Produtos', title: 'Discos de corte, trena emborrachada e mais', text: 'Ferramentas que o Duráximo usa no dia a dia da construção.' },
@@ -27,9 +27,11 @@
   const elGrade = document.getElementById('blog-grade');
   let tagAtiva = 'Todos';
 
+  const mascote = p => /duraximo\./.test(p.img) ? ' class="mascote"' : '';
+
   function destaque(p) {
     return '<a class="post-destaque" href="' + esc(p.link || INSTAGRAM) + '" target="_blank" rel="noopener">' +
-      '<img src="' + esc(p.img) + '" alt="">' +
+      '<img src="' + esc(p.img) + '" alt=""' + mascote(p) + '>' +
       '<div class="post-destaque-info">' +
         '<span class="post-tag">' + esc(p.tag) + '</span>' +
         '<span class="post-destaque-titulo">' + esc(p.title) + '</span>' +
@@ -40,7 +42,7 @@
 
   function card(p) {
     return '<a class="post-card" href="' + esc(p.link || INSTAGRAM) + '" target="_blank" rel="noopener">' +
-      '<img src="' + esc(p.img) + '" alt="" loading="lazy">' +
+      '<img src="' + esc(p.img) + '" alt="" loading="lazy"' + mascote(p) + '>' +
       '<div class="post-card-info">' +
         '<span class="post-tag">' + esc(p.tag) + '</span>' +
         '<span class="post-card-titulo">' + esc(p.title) + '</span>' +

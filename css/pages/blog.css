@@ -37,6 +37,8 @@
 .blog-grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 20px; }
 .post-card { display: flex; flex-direction: column; }
 .post-card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
+/* Duráximo (PNG/WebP sem fundo): mostra inteiro sobre o fundo da seção */
+.post-destaque img.mascote, .post-card img.mascote { object-fit: contain; padding: 16px; background: var(--bg-secao); }
 .post-card-info { padding: 22px 24px 26px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
 .post-card-titulo { font-family: var(--font-cond); font-weight: 700; font-size: 24px; line-height: 1.1; }
 
@@ -49,7 +51,7 @@
   padding-top: clamp(40px, 5vw, 64px); padding-bottom: clamp(40px, 5vw, 64px);
   display: flex; flex-wrap: wrap; align-items: center; gap: 24px;
 }
-.blog-siga img { width: 64px; height: 84px; object-fit: cover; object-position: top; background: #FFFFFF; display: block; }
+.blog-siga img { width: 64px; height: 110px; object-fit: contain; display: block; }
 .blog-siga-texto { flex: 1 1 320px; font-family: var(--font-cond); font-weight: 600; font-size: 22px; line-height: 1.25; }
 .blog-siga-texto strong { color: var(--destaque); }
 
