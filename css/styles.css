@@ -208,7 +208,7 @@ input::placeholder, textarea::placeholder { color: var(--texto-3); }
 .breadcrumb a { color: var(--texto-2); }
 .breadcrumb [aria-current] { color: var(--texto); }
 
-/* ---------- Rodapé (escuro nos dois temas) ---------- */
+/* ---------- Rodapé (escuro; claro no modo claro) ---------- */
 .site-footer { background: #0E0E0E; color: #D8D8D3; border-top: 4px solid var(--amarelo); }
 .footer-grid {
   padding-top: 64px; padding-bottom: 48px;
@@ -220,7 +220,7 @@ input::placeholder, textarea::placeholder { color: var(--texto-3); }
 .footer-col .titulo { font-family: var(--font-cond); font-weight: 700; font-size: 14px; letter-spacing: .16em; color: var(--amarelo); margin-bottom: 6px; }
 .footer-col a.destaque { color: #FFFFFF; font-weight: 600; }
 .footer-marca { gap: 20px; }
-.footer-marca img { width: 160px; display: block; }
+.footer-marca img { width: 160px; }
 .footer-marca p { margin: 0; line-height: 1.6; }
 .redes { display: flex; flex-wrap: wrap; gap: 10px; }
 .redes a {
@@ -237,5 +237,16 @@ input::placeholder, textarea::placeholder { color: var(--texto-3); }
 .footer-base a { color: #D8D8D3; }
 .footer-base a:hover { color: var(--amarelo); }
 .siaga { display: flex; align-items: center; gap: 10px; }
-.siaga span { background: var(--amarelo); padding: 2px 6px; display: flex; }
-.siaga img { height: 26px; display: block; }
+.siaga img { height: 34px; }
+
+/* Modo claro: rodapé claro, logos pretas (as brancas somem via .so-escuro) */
+:root[data-theme="light"] .site-footer { background: #F1F1EE; color: #4A4F4A; }
+:root[data-theme="light"] .footer-col a,
+:root[data-theme="light"] .footer-base a { color: #4A4F4A; }
+:root[data-theme="light"] .footer-col a:hover,
+:root[data-theme="light"] .footer-base a:hover { color: #8A6F00; }
+:root[data-theme="light"] .footer-col .titulo { color: #8A6F00; }
+:root[data-theme="light"] .footer-col a.destaque { color: #171717; }
+:root[data-theme="light"] .redes a { border-color: rgba(23,23,23,.25); color: #171717; }
+:root[data-theme="light"] .redes a:hover { border-color: #8A6F00; color: #8A6F00; }
+:root[data-theme="light"] .footer-base { border-top-color: rgba(23,23,23,.1); }

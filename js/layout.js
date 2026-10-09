@@ -36,7 +36,8 @@
   const LOGO = '<a href="' + PAGINAS.inicio + '" class="logo">' +
     '<img class="so-escuro" src="assets/logo/durax-logo-branco.png" alt="Durax">' +
     '<img class="so-claro" src="assets/logo/durax-logo-preto.png" alt="Durax"></a>';
-  const LOGO_RODAPE = '<img src="assets/logo/durax-logo-branco.png" alt="Durax">';
+  const LOGO_RODAPE = '<img class="so-escuro" src="assets/logo/durax-logo-branco.png" alt="Durax">' +
+    '<img class="so-claro" src="assets/logo/durax-logo-preto.png" alt="Durax">';
   const ICONE_TEMA = '<svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13Z" fill="currentColor"/></svg>';
   const temaAtual = () => document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
   const rotuloTema = () => temaAtual() === 'light' ? 'Modo escuro' : 'Modo claro';
@@ -126,7 +127,8 @@
       '<div class="footer-base"><div class="container">' +
         '<span>© Durax 2025–2026</span>' +
         '<nav><a href="#">Privacidade</a><a href="#">Política de cookies</a><a href="#">Termos de uso</a><a href="#">Código de ética</a></nav>' +
-        '<span class="siaga">UMA MARCA <span><img src="assets/site/siaga.png" alt="Siaga Corp"></span></span>' +
+        '<span class="siaga">UMA MARCA <img class="so-escuro" src="assets/site/siaga-branco.png" alt="Siaga Corp">' +
+          '<img class="so-claro" src="assets/site/siaga-preto.png" alt="Siaga Corp"></span>' +
       '</div></div>';
   }
 
