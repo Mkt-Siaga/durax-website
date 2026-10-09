@@ -110,7 +110,7 @@
       '<div class="container footer-grid">' +
         '<div class="footer-col footer-marca">' + LOGO_RODAPE +
           '<p>Ferramentas e materiais para construção civil, com qualidade inspecionada na fábrica e estoque no Brasil.</p>' +
-          '<div class="redes"><a href="https://www.instagram.com/duraxbr" target="_blank" rel="noopener">INSTAGRAM</a><a href="#">LINKEDIN</a><a href="#">YOUTUBE</a></div></div>' +
+          '<div class="redes"><a href="https://www.instagram.com/duraxbr" target="_blank" rel="noopener">INSTAGRAM</a></div></div>' +
         col('PRODUTOS', [
           ['Adesivos e produtos químicos', PAGINAS.produtos], ['Abrasivos, ferragens e solda', PAGINAS.produtos],
           ['EPIs', PAGINAS.produtos], ['Material elétrico e iluminação', PAGINAS.categoria],
