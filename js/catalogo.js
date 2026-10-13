@@ -314,7 +314,7 @@ window.DURAX_CATALOGO = [
     {"name":"Painel Soldado Galvanizado","pages":[90],"img":"assets/produtos/c01nb00129.jpg","sg":"C01NB00129"},
     {"name":"Arame Oval Galvanizado","pages":[90],"img":"assets/produtos/arame-oval-galvanizado.jpg","sg":"C01NB00140"},
     {"name":"Tensor Gancho","pages":[90],"img":"assets/produtos/tensor-gancho.webp"},
-    {"name":"Grampo Perfurante","pages":[90]},
+    {"name":"Grampo Perfurante","pages":[90],"img":"assets/produtos/grampo-perfurante.jpg"},
     {"name":"Corda de Polietileno Torcida 3 Pernas","pages":[90],"img":"assets/produtos/corda-de-polietileno-torcida-3-pernas.jpg"}
   ]},
   {"name":"Brindes e Diversos","page":125,"items":[
