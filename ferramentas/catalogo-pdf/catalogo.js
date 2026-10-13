@@ -97,7 +97,7 @@ document.fonts.ready.then(function () {
       if (v.length > 40) el.style.gridTemplateColumns = '1fr';
       return { el, aoColocar: pg => {
         mapa.push({ ci, ii, name: it.name, page: pg });
-        v.forEach(x => porCodigo.push([x[0], it.name, pg]));
+        v.forEach(x => { if (x[0] && x[0] !== '—') porCodigo.push([x[0], it.name, pg]); });
         lista.insertAdjacentHTML('beforeend', '<div><span>' + esc(it.name) + '</span><b>' + pg + '</b></div>');
       } };
     });
