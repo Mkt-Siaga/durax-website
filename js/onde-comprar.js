@@ -55,7 +55,16 @@
   }
 
   // ===== Mapa (Leaflet + Esri Gray Canvas escuro/claro conforme o tema do site) =====
-  var mapa = null, camada = null, rotulos = null, pinos = [];
+  var mapa = null, camada = null, rotulos = null, estados = null, pinos = [], ufDestaque = null;
+  function estiloEstado(f) {
+    var claro = document.documentElement.getAttribute('data-theme') === 'light';
+    var ativo = ufDestaque === f.properties.uf;
+    return {
+      color: claro ? '#8A6F00' : '#FCCD09', weight: ativo ? 2 : 1.2, opacity: ativo ? 0.9 : 0.55,
+      fillColor: '#FCCD09', fillOpacity: ativo ? (claro ? 0.22 : 0.16) : (claro ? 0.12 : 0.07)
+    };
+  }
+  function destacarUf(uf) { ufDestaque = uf; if (estados) estados.setStyle(estiloEstado); }
   var BRASIL = [[-33.8, -73.9], [5.3, -34.8]];
   function urlTiles() {
     var claro = document.documentElement.getAttribute('data-theme') === 'light';
@@ -74,7 +83,15 @@
       attribution: 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors'
     }).addTo(mapa);
     rotulos = L.tileLayer(urlRotulos(), { maxZoom: 16 }).addTo(mapa);
-    document.addEventListener('durax:tema', function () { camada.setUrl(urlTiles()); rotulos.setUrl(urlRotulos()); });
+    // Divisas dos estados com distribuidor: amarelo translúcido, abaixo dos pinos (malha IBGE simplificada)
+    mapa.createPane('estados'); mapa.getPane('estados').style.zIndex = 350;
+    fetch('assets/mapa/estados.geojson').then(function (r) { return r.json(); }).then(function (geo) {
+      estados = L.geoJSON(geo, { pane: 'estados', interactive: false, style: estiloEstado }).addTo(mapa);
+    }).catch(function () {});
+    document.addEventListener('durax:tema', function () {
+      camada.setUrl(urlTiles()); rotulos.setUrl(urlRotulos());
+      if (estados) estados.setStyle(estiloEstado);
+    });
   }
   function popupHtml(r) {
     var rota = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(r.endereco + ', ' + r.cep);
@@ -85,6 +102,8 @@
       '<a href="' + rota + '" target="_blank" rel="noopener">COMO CHEGAR ↗</a></div>';
   }
   function marcar(nome) {
+    var r = REVENDAS.filter(function (x) { return x.nome === nome; })[0];
+    destacarUf(r ? r.uf : null);
     pinos.forEach(function (p) { p.icone.classList.toggle('ativo', p.r.nome === nome); });
     [].forEach.call(itens.querySelectorAll('.oc-revenda'), function (c) { c.classList.toggle('ativo', c.dataset.nome === nome); });
   }
@@ -141,6 +160,7 @@
       itens.appendChild(card);
     });
     desenharPinos(lista);
+    destacarUf(uf === TODOS ? null : uf);
     // Com CEP buscado, destaca o mais próximo no mapa
     if (cepOk && mapa) focar(lista[0].nome);
   }
