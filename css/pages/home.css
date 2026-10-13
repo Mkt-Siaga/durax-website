@@ -52,7 +52,7 @@
 }
 .home-hero .home-acoes { margin-top: 8px; }
 .home-hero-foto { position: relative; }
-.home-hero-foto .foto { width: 100%; aspect-ratio: 5 / 4; object-fit: cover; object-position: 75% 60%; display: block; }
+.home-hero-foto .foto { width: 100%; height: auto; aspect-ratio: 1070 / 704; object-fit: cover; display: block; }
 .home-hero-foto .bandeira { position: absolute; top: 0; right: 0; width: clamp(56px, 7vw, 96px); display: block; }
 .home-hero-foto .selo {
   position: absolute; left: 0; bottom: 0; background: var(--amarelo); color: var(--preto); padding: 14px 20px;
