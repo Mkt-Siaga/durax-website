@@ -45,7 +45,9 @@
   border-bottom: 1px solid rgba(23,23,23,.06);
 }
 .produto-foto img { height: 150px; max-width: 86%; object-fit: contain; display: block; }
-.produto-foto img.icone { height: 96px; mix-blend-mode: multiply; }
+.produto-foto .sem-foto { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.produto-foto .sem-foto img { width: 96px; height: auto; opacity: .18; }
+.produto-foto .sem-foto span { font-family: var(--font-cond); font-weight: 700; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #8C8C86; }
 .produto-info { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .produto-cat { font-family: var(--font-cond); font-weight: 700; font-size: 12px; letter-spacing: .12em; color: var(--destaque); text-transform: uppercase; }
 .produto-nome { font-family: var(--font-cond); font-weight: 600; font-size: 20px; line-height: 1.1; }

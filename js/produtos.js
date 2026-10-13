@@ -1,14 +1,6 @@
 // Catálogo filtrável da página de produtos. Dados em js/catalogo.js (window.DURAX_CATALOGO).
 (function () {
   const PDF = 'assets/catalogo/catalogo-durax-2026.pdf';
-  // Ícone da categoria usado quando o produto não tem foto
-  const ICONES = [['FIXA', 'l1'], ['FERRAGENS', 'r5'], ['FERR', 'l2'], ['PERF', 'l3'], ['ILUM', 'l4'], ['HIDR', 'l5'], ['UTIL', 'l6'],
-    ['SOLD', 'r1'], ['PINT', 'r2'], ['SUPO', 'r3'], ['JARD', 'r4'], ['BRIN', 'r6'], ['ABRA', 'l3']];
-  const iconeDa = cat => {
-    const u = cat.toUpperCase();
-    const m = ICONES.find(([k]) => k === 'FERRAGENS' ? u === k : u.startsWith(k));
-    return 'assets/site/icon-' + (m ? m[1] : 'l1') + '.png';
-  };
   const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -42,9 +34,10 @@
     const href = led ? 'categoria.html'
       : temPagina ? PDF + '#page=' + it.pages[0]
       : WHATSAPP + '?text=' + encodeURIComponent('Olá! Quero saber mais sobre: ' + it.name);
+    // Sem foto: aviso neutro (o ícone da categoria parecia outro produto)
     const foto = it.img
       ? '<img src="' + esc(it.img) + '" alt="' + esc(it.name) + '" loading="lazy">'
-      : '<img class="icone" src="' + iconeDa(it.cat) + '" alt="' + esc(it.name) + '" loading="lazy">';
+      : '<div class="sem-foto"><img src="assets/logo/durax-logo-preto.png" alt=""><span>Foto em breve</span></div>';
     const rodape = temPagina ? 'Pág. ' + it.pages.join(', ') : 'Lançamento';
     const cta = led ? 'VER VARIAÇÕES →' : temPagina ? 'VER NO CATÁLOGO →' : 'CONSULTAR →';
     const link = '<a class="produto" href="' + href + '"' + (led ? '' : ' target="_blank" rel="noopener"') + '>' +

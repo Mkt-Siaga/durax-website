@@ -138,7 +138,7 @@ window.DURAX_CATALOGO = [
     {"name":"Conector Elétrico em Barra Multiplo","pages":[60],"img":"assets/produtos/conector-eletrico-em-barra-multiplo.jpg"},
     {"name":"Driver para Painel LED","pages":[60],"img":"assets/produtos/driver-para-painel-led.jpg"},
     {"name":"Conector Rápido para Fios","pages":[],"versoes":[["H06NB00032","CONECTOR RAPIDO PARA FIOS 2 VIAS 4MM"],["H06NB00033","CONECTOR RAPIDO PARA FIOS 3 VIAS 4MM"],["H06NB00034","CONECTOR RAPIDO PARA FIOS 5 VIAS 4MM"],["H06NB00035","CONECTOR RAPIDO PARA FIOS 2 VIAS 6MM"],["H06NB00036","CONECTOR RAPIDO EM LINHA 1 VIA 4MM"]]},
-    {"name":"Conector de Porcelana","pages":[],"versoes":[["H06NB00026","CONECTOR LOUCA BIPOLAR 06MM 6A"],["H06NB00027","CONECTOR LOUCA BIPOLAR 10MM 10A"],["H06NB00028","CONECTOR LOUCA BIPOLAR 16MM 30A C/1"],["H06NB00029","CONECTOR LOUCA TRIPOLAR 06MM 6A"],["H06NB00030","CONECTOR LOUCA TRIPOLAR 10MM 10A"],["H06NB00031","CONECTOR LOUCA TRIPOLAR 16MM 30A C/1"]]}
+    {"name":"Conector de Porcelana","pages":[],"img":"assets/produtos/conector-de-porcelana.jpg","sg":"H06NB00026","versoes":[["H06NB00026","CONECTOR LOUCA BIPOLAR 06MM 6A"],["H06NB00027","CONECTOR LOUCA BIPOLAR 10MM 10A"],["H06NB00028","CONECTOR LOUCA BIPOLAR 16MM 30A C/1"],["H06NB00029","CONECTOR LOUCA TRIPOLAR 06MM 6A"],["H06NB00030","CONECTOR LOUCA TRIPOLAR 10MM 10A"],["H06NB00031","CONECTOR LOUCA TRIPOLAR 16MM 30A C/1"]]}
   ]},
   {"name":"Hidráulica, Água e Irrigação","page":61,"items":[
     {"name":"Bomba D’água Periférica","pages":[62],"img":"assets/produtos/dx10001-bomba-periferica.jpg","versoes":[["E11NB00004","BOMBA PERIFERICA 1CV 127V 60HZ BOBINA DE ALUMINIO ROTOR DE LATAO"],["E11NB00007","BOMBA PERIFERICA 0,5CV 127V 60HZ BOBINA DE ALUMINIO ROTOR INOX"]]},
@@ -185,14 +185,14 @@ window.DURAX_CATALOGO = [
     {"name":"Ralo de Chão","pages":[73],"img":"assets/produtos/i07nb00026.jpg","sg":"I07NB00026"},
     {"name":"Cuba de Cerâmica Branca","pages":[73],"img":"assets/produtos/cuba-de-ceramica-branca.jpg","sg":"I06NB00021"},
     {"name":"Cuba de Vidro Transparente","pages":[73],"img":"assets/produtos/i06nb00015.jpg","sg":"I06NB00015"},
-    {"name":"Botão de Descarga","pages":[],"versoes":[["I05NB00025","BOTÃO CROMADO 38MM COM ALAVANCA PARA ACIONADOR SUPERIOR"],["I05NB00031","BOTÃO CROMADO 38MM PARA ACIONADOR CASTELO"]]},
-    {"name":"Mecanismo de Caixa Acoplada","pages":[],"versoes":[["I05NB00019","MECANISMO UNIVERSAL DE SAIDA P/ CAIXA ACOPLADA PP ACIONAMENTO SUPERIOR ALTURA AJUSTÁVEL"],["I05NB00020","MECANISMO UNIVERSAL DE ENTRADA P/ CAIXA ACOPLADA PP ALTURA AJUSTAVÉL"],["I05NB00023","KIT UNIVERSAL COMPLETO P/ CAIXA ACOPLADA TIPO CASTELO SUPERIOR, MECANISMO DE ENTRADA/SAÍDA AJUSTAVEIS, BOTÃO, PARAFUSOS E ANEL DE VEDAÇÃO"]]},
-    {"name":"Conexões de PP","pages":[],"versoes":[["I04NB00016","PARAFUSOS DE FIXAÇÃO PARA CAIXA ACOPLADA"]]},
-    {"name":"Chave Boia","pages":[],"versoes":[["E11NB00017","CHAVE BOIA DE NIVEL ELETRONICA 15A BIVOLT - CABO 1.5M"],["E11NB00018","CHAVE BOIA DE NIVEL ELETRONICA 25A BIVOLT - CABO 1.5M"]]}
+    {"name":"Botão de Descarga","pages":[],"img":"assets/produtos/botao-de-descarga.jpg","sg":"I05NB00025","versoes":[["I05NB00025","BOTÃO CROMADO 38MM COM ALAVANCA PARA ACIONADOR SUPERIOR"],["I05NB00031","BOTÃO CROMADO 38MM PARA ACIONADOR CASTELO"]]},
+    {"name":"Mecanismo de Caixa Acoplada","pages":[],"img":"assets/produtos/mecanismo-de-caixa-acoplada.jpg","sg":"I05NB00019","versoes":[["I05NB00019","MECANISMO UNIVERSAL DE SAIDA P/ CAIXA ACOPLADA PP ACIONAMENTO SUPERIOR ALTURA AJUSTÁVEL"],["I05NB00020","MECANISMO UNIVERSAL DE ENTRADA P/ CAIXA ACOPLADA PP ALTURA AJUSTAVÉL"],["I05NB00023","KIT UNIVERSAL COMPLETO P/ CAIXA ACOPLADA TIPO CASTELO SUPERIOR, MECANISMO DE ENTRADA/SAÍDA AJUSTAVEIS, BOTÃO, PARAFUSOS E ANEL DE VEDAÇÃO"]]},
+    {"name":"Conexões de PP","pages":[],"img":"assets/produtos/conexoes-de-pp.jpg","sg":"I04NB00016","versoes":[["I04NB00016","PARAFUSOS DE FIXAÇÃO PARA CAIXA ACOPLADA"]]},
+    {"name":"Chave Boia","pages":[],"img":"assets/produtos/chave-boia.jpg","sg":"E11NB00017","versoes":[["E11NB00017","CHAVE BOIA DE NIVEL ELETRONICA 15A BIVOLT - CABO 1.5M"],["E11NB00018","CHAVE BOIA DE NIVEL ELETRONICA 25A BIVOLT - CABO 1.5M"]]}
   ]},
   {"name":"Utilidades de Obra e Transporte","page":74,"items":[
     {"name":"Câmara para Carrinho de Mão","pages":[75],"img":"assets/produtos/dx1001-camara-para-carrinho-de-mao.jpg","versoes":[["G06NB00024","CAMARA PARA CARRINHO DE MAO 3.25-8"],["G06NB00025","CAMARA PARA CARRINHO DE MAO 3.50-8"],["G06NB00026","CAMARA PARA CARRINHO DE MAO 4.00-8"]]},
-    {"name":"Roda Completa com Pneu PU","pages":[75],"versoes":[["G06NB00002","RODA COMPLETA COM PNEU PU 3.25"]]},
+    {"name":"Roda Completa com Pneu PU","pages":[75],"img":"assets/produtos/roda-completa-com-pneu-pu.jpg","sg":"G06NB00002","versoes":[["G06NB00002","RODA COMPLETA COM PNEU PU 3.25"]]},
     {"name":"Saco de Rafia","pages":[76],"img":"assets/produtos/saco-de-rafia.webp"},
     {"name":"Pneu para Carrinho de Mão","pages":[75],"img":"assets/produtos/sg-tr13010a-pneu-para-carrinho-de-mao.jpg","versoes":[["G06NB00001","RODA PARA CARRINHO DE MAO 3.25-8"],["G06NB00019","PNEU 3.50-8-2PR P/CARRINHO DE MAO"],["G06NB00022","PNEU 4.00-8-4PR P/CARRINHO DE MAO"]]},
     {"name":"Luva de Látex","pages":[76],"img":"assets/produtos/luva-de-latex.jpg","sg":"B01NB00009"},
@@ -206,7 +206,7 @@ window.DURAX_CATALOGO = [
     {"name":"Luva Nitrílica Descartável","pages":[79],"img":"assets/produtos/luva-nitrilica-descartavel.webp"},
     {"name":"Luva Descartável Incolor","pages":[79],"img":"assets/produtos/luva-descartavel-incolor.webp"},
     {"name":"Rodizio Mesa Gel","pages":[79],"img":"assets/produtos/rodizio-mesa-gel.jpg"},
-    {"name":"Cinta para Carga","pages":[],"versoes":[["C02NB00209","CINTA P/CARGA JOTA 1,5T 4,5M LAR.C/CAT"],["C02NB00210","CINTA P/CARGA JOTA 1,5T 9M LAR.C/CAT"],["C02NB00211","CINTA P/CARGA JOTA 3T 9M LAR.C/CAT"],["C02NB00212","CINTA P/CARGA JOTA 5T 9M LAR.C/CAT"],["C02NB00213","CINTA P/CARGA MOTO 0.8T 3M LAR.C/CAT ABER."],["C02NB00214","CINTA P/CARGA MOTO 0.8T 3M LAR.C/CAT FECH."]]}
+    {"name":"Cinta para Carga","pages":[],"img":"assets/produtos/cinta-para-carga.jpg","sg":"C02NB00209","versoes":[["C02NB00209","CINTA P/CARGA JOTA 1,5T 4,5M LAR.C/CAT"],["C02NB00210","CINTA P/CARGA JOTA 1,5T 9M LAR.C/CAT"],["C02NB00211","CINTA P/CARGA JOTA 3T 9M LAR.C/CAT"],["C02NB00212","CINTA P/CARGA JOTA 5T 9M LAR.C/CAT"],["C02NB00213","CINTA P/CARGA MOTO 0.8T 3M LAR.C/CAT ABER."],["C02NB00214","CINTA P/CARGA MOTO 0.8T 3M LAR.C/CAT FECH."]]}
   ]},
   {"name":"Solda, Corte Térmico e Apoio","page":81,"items":[
     {"name":"Maçarico Portátil","pages":[82],"img":"assets/produtos/macarico-culinario.jpg"},
@@ -235,13 +235,13 @@ window.DURAX_CATALOGO = [
     {"name":"Fita Silver","pages":[90],"img":"assets/produtos/fita-silver.jpg"},
     {"name":"Tela Extrudada Nylon","pages":[90],"img":"assets/produtos/tela-extrudada-nylon.jpg"},
     {"name":"Tela Tapume","pages":[90],"img":"assets/produtos/tela-tapume.jpg"},
-    {"name":"Tinta Spray","pages":[],"versoes":[["A11NB00004","TINTA SPRAY 350ML/250G - USO GERAL - BRANCO FOSCO (S05)"],["A11NB00007","TINTA SPRAY 350ML/250G - USO GERAL - CINZA"],["A11NB00009","TINTA SPRAY 350ML/250G - USO GERAL - VERMELHO (T32/S131)"],["A11NB00010","TINTA SPRAY 350ML/250G - USO GERAL - DOURADO (T45/S139)"],["A11NB00011","TINTA SPRAY 350ML/250G - USO GERAL - AMARELO (T03/S25)"],["A11NB00019","TINTA SPRAY 350ML/250G - USO GERAL - VERDE (T14/S37)"],["A11NB00037","TINTA SPRAY 350ML/250G - COBRE METALICO (T16)"]]}
+    {"name":"Tinta Spray","pages":[],"img":"assets/produtos/tinta-spray.jpg","sg":"A11NB00004","versoes":[["A11NB00004","TINTA SPRAY 350ML/250G - USO GERAL - BRANCO FOSCO (S05)"],["A11NB00007","TINTA SPRAY 350ML/250G - USO GERAL - CINZA"],["A11NB00009","TINTA SPRAY 350ML/250G - USO GERAL - VERMELHO (T32/S131)"],["A11NB00010","TINTA SPRAY 350ML/250G - USO GERAL - DOURADO (T45/S139)"],["A11NB00011","TINTA SPRAY 350ML/250G - USO GERAL - AMARELO (T03/S25)"],["A11NB00019","TINTA SPRAY 350ML/250G - USO GERAL - VERDE (T14/S37)"],["A11NB00037","TINTA SPRAY 350ML/250G - COBRE METALICO (T16)"]]}
   ]},
   {"name":"Suportes e Instalação","page":91,"items":[
     {"name":"Suporte Mão Francesa Preta","pages":[92],"img":"assets/produtos/mao-francesa-preta.jpg","versoes":[["C07NB00027","CANTONEIRA EM L / SUPORTE MÃO FRANCESA REFORÇADA SOLDADA 15X12CM 68G PRETA"],["C07NB00028","CANTONEIRA EM L / SUPORTE MÃO FRANCESA REFORÇADA SOLDADA 20X12CM 84G PRETA"],["C07NB00029","CANTONEIRA EM L / SUPORTE MÃO FRANCESA REFORÇADA SOLDADA 25X16CM 100G PRETA"],["C07NB00030","CANTONEIRA EM L / SUPORTE MÃO FRANCESA REFORÇADA SOLDADA 30X19CM 127G PRETA"],["C07NB00031","CANTONEIRA EM L / SUPORTE MÃO FRANCESA REFORÇADA SOLDADA 40X25CM 291G PRETA"],["C07NB00032","CANTONEIRA EM L / SUPORTE MÃO FRANCESA REFORÇADA SOLDADA 50X30CM 358G PRETA"]]},
     {"name":"Cantoneira para Prateleira","pages":[92],"img":"assets/produtos/cantoneira-para-prateleira.jpg","sg":"C07NB00059"},
     {"name":"Suporte Mão Francesa Branca","pages":[92],"img":"assets/produtos/mao-francesa-branca.jpg","versoes":[["C07NB00021","CANTONEIRA EM L / SUPORTE MÃO FRANCESA REFORÇADA SOLDADA 15X12CM 68G BRANCA"],["C07NB00022","CANTONEIRA EM L / SUPORTE MÃO FRANCESA REFORÇADA SOLDADA 20X12CM 84G BRANCA"],["C07NB00023","CANTONEIRA EM L / SUPORTE MÃO FRANCESA REFORÇADA SOLDADA 25X16CM 100G BRANCA"],["C07NB00024","CANTONEIRA EM L / SUPORTE MÃO FRANCESA REFORÇADA SOLDADA 30X19CM 127G BRANCA"],["C07NB00025","CANTONEIRA EM L / SUPORTE MÃO FRANCESA REFORÇADA SOLDADA 40X25CM 291G BRANCA"],["C07NB00026","CANTONEIRA EM L / SUPORTE MÃO FRANCESA REFORÇADA SOLDADA 50X30CM 358G BRANCA"]]},
-    {"name":"Prateleira","pages":[93]}
+    {"name":"Prateleira","pages":[93],"img":"assets/produtos/prateleira.jpg","sg":"G02NB00004"}
   ]},
   {"name":"Jardinagem e Uso Rural","page":94,"items":[
     {"name":"Hélice Roçadeira","pages":[95],"img":"assets/produtos/lamina-rocadeira-helice.jpg"},
