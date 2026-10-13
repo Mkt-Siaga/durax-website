@@ -112,6 +112,7 @@
 .novidade:hover { background: var(--campo); color: var(--texto); }
 .novidade-foto { background: #EDEDEA; aspect-ratio: 3 / 2; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .novidade-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.novidade-foto img.contem { object-fit: contain; padding: 8%; } /* imagem sem fundo: mostra inteira */
 .novidade-info { padding: 24px 26px 28px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
 .novidade-tag {
   align-self: flex-start; background: var(--amarelo); color: var(--preto); padding: 4px 10px;
