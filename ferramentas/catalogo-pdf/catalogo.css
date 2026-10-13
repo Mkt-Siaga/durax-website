@@ -1,0 +1,96 @@
+/* Catálogo Durax em A4 — cada .pagina é uma folha; a paginação é feita em catalogo.js */
+@page { size: A4; margin: 0; }
+:root {
+  --amarelo: #FCCD09; --preto: #171717; --grafite: #222220; --cinza: #8C8C86; --linha: #E2E2DD; --fundo: #F6F6F3;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #555; }
+body { font-family: 'Barlow', sans-serif; color: var(--preto); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+@media print { html, body { background: none; } }
+#livro { display: flex; flex-direction: column; align-items: center; gap: 8mm; padding: 8mm 0; }
+@media print { #livro { display: block; padding: 0; } }
+
+.pagina {
+  width: 210mm; height: 297mm; position: relative; overflow: hidden; background: #FFF;
+  page-break-after: always; break-after: page;
+}
+.pagina:last-child { page-break-after: auto; break-after: auto; }
+
+/* ---------- Capa ---------- */
+.capa { background: var(--preto); color: #FFF; }
+.capa-faixa { position: absolute; left: 0; right: 0; bottom: 0; height: 118mm; background: var(--amarelo); clip-path: polygon(0 22%, 100% 0, 100% 100%, 0 100%); }
+.capa-topo { position: absolute; top: 16mm; left: 16mm; right: 16mm; display: flex; justify-content: space-between; align-items: center; }
+.capa-topo img { width: 42mm; }
+.capa-topo span { font-family: 'Barlow Condensed'; font-weight: 700; letter-spacing: .2em; color: var(--amarelo); font-size: 10pt; }
+.capa h1 { position: absolute; top: 46mm; left: 16mm; margin: 0; font-family: 'League Gothic'; font-weight: 400; font-size: 78pt; line-height: .88; text-transform: uppercase; }
+.capa h1 b { color: var(--amarelo); font-weight: 400; display: block; }
+.capa-sub { position: absolute; top: 118mm; left: 16mm; font-size: 11pt; color: #D8D8D3; }
+.capa-cats { position: absolute; left: 16mm; right: 16mm; bottom: 16mm; display: grid; grid-template-columns: 1fr 1fr; gap: 0 10mm; color: var(--preto); }
+.capa-cats div { display: flex; gap: 4mm; padding: 2.2mm 0; border-top: .3mm solid rgba(23,23,23,.35); font-family: 'Barlow Condensed'; font-weight: 700; font-size: 9pt; letter-spacing: .06em; text-transform: uppercase; }
+.capa-cats div b { width: 7mm; }
+
+/* ---------- Cabeçalho / rodapé das páginas internas ---------- */
+.cab { position: absolute; top: 9mm; left: 14mm; right: 14mm; height: 9mm; display: flex; align-items: center; justify-content: space-between; border-bottom: .5mm solid var(--preto); }
+.cab-cat { display: flex; align-items: center; gap: 3mm; font-family: 'Barlow Condensed'; font-weight: 700; font-size: 9pt; letter-spacing: .12em; text-transform: uppercase; }
+.cab-cat b { background: var(--amarelo); padding: .6mm 2mm; }
+.cab img { height: 5mm; }
+.rod { position: absolute; bottom: 8mm; left: 14mm; right: 14mm; display: flex; justify-content: space-between; align-items: flex-end; font-family: 'Barlow Condensed'; font-weight: 700; font-size: 8pt; letter-spacing: .14em; color: var(--cinza); }
+.rod .num { font-family: 'League Gothic'; font-weight: 400; font-size: 22pt; letter-spacing: 0; color: var(--preto); line-height: 1; }
+.aba { position: absolute; right: 0; width: 6mm; height: 14mm; background: var(--amarelo); display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed'; font-weight: 800; font-size: 8pt; }
+.corpo { position: absolute; top: 24mm; left: 14mm; right: 14mm; bottom: 20mm; overflow: hidden; }
+
+/* ---------- Sumário ---------- */
+.titulo-pag { font-family: 'League Gothic'; font-weight: 400; font-size: 46pt; line-height: 1; text-transform: uppercase; margin: 2mm 0 3mm; }
+.sum-intro { font-size: 9.5pt; color: #4A4F4A; max-width: 140mm; margin-bottom: 8mm; line-height: 1.45; }
+.sum-linha { display: flex; align-items: baseline; gap: 4mm; padding: 3mm 0; border-bottom: .3mm solid var(--linha); font-family: 'Barlow Condensed'; font-weight: 700; font-size: 11pt; letter-spacing: .04em; text-transform: uppercase; }
+.sum-linha .n { color: #8A6F00; width: 9mm; font-size: 13pt; }
+.sum-linha .nome { flex: 1; }
+.sum-linha small { font-weight: 500; font-size: 8pt; color: var(--cinza); letter-spacing: .06em; text-transform: none; }
+.sum-linha .p { font-family: 'League Gothic'; font-weight: 400; font-size: 15pt; width: 12mm; text-align: right; }
+
+/* ---------- Abertura de categoria ---------- */
+.abertura { background: var(--preto); color: #FFF; }
+.abertura-num { position: absolute; top: 30mm; left: 16mm; font-family: 'League Gothic'; font-size: 130pt; line-height: .8; color: var(--amarelo); }
+.abertura h2 { position: absolute; top: 80mm; left: 16mm; right: 16mm; margin: 0; font-family: 'League Gothic'; font-weight: 400; font-size: 48pt; line-height: .92; text-transform: uppercase; }
+.abertura-lista { position: absolute; top: 132mm; left: 16mm; right: 16mm; bottom: 24mm; columns: 2; column-gap: 10mm; }
+.abertura-lista div { display: flex; justify-content: space-between; gap: 3mm; padding: 1.3mm 0; border-bottom: .2mm solid rgba(255,255,255,.14); font-size: 8.5pt; break-inside: avoid; }
+.abertura-lista div b { color: var(--amarelo); font-family: 'Barlow Condensed'; font-weight: 700; }
+.abertura .rod { color: #8C8C86; }
+.abertura .rod .num { color: #FFF; }
+.abertura .cab-topo { position: absolute; top: 14mm; left: 16mm; right: 16mm; display: flex; justify-content: space-between; align-items: center; font-family: 'Barlow Condensed'; font-weight: 700; font-size: 9pt; letter-spacing: .2em; color: var(--amarelo); }
+.abertura .cab-topo img { height: 6mm; }
+
+/* ---------- Bloco de produto ---------- */
+.prod { display: grid; grid-template-columns: 34mm 1fr; gap: 5mm; padding: 4mm 0; border-bottom: .3mm solid var(--linha); break-inside: avoid; }
+.prod-foto { width: 34mm; height: 34mm; background: #FFF; border: .3mm solid var(--linha); display: flex; align-items: center; justify-content: center; }
+.prod-foto img { max-width: 90%; max-height: 90%; object-fit: contain; }
+.prod-foto.vazia { background: var(--fundo); }
+.prod-foto.vazia img { width: 60%; opacity: .16; }
+.prod-nome { font-family: 'League Gothic'; font-weight: 400; font-size: 19pt; line-height: 1; text-transform: uppercase; margin: 0 0 1.5mm; }
+.prod-tag { display: inline-block; background: var(--amarelo); font-family: 'Barlow Condensed'; font-weight: 700; font-size: 7pt; letter-spacing: .1em; padding: .4mm 1.6mm; margin-bottom: 2mm; text-transform: uppercase; }
+.prod-sem { font-size: 8.5pt; color: #4A4F4A; line-height: 1.4; }
+.vers { width: 100%; border-collapse: collapse; font-size: 7.4pt; line-height: 1.25; }
+.vers th { text-align: left; font-family: 'Barlow Condensed'; font-weight: 700; font-size: 6.6pt; letter-spacing: .12em; color: var(--cinza); border-bottom: .3mm solid var(--preto); padding: .6mm 1.5mm .6mm 0; }
+.vers td { padding: .7mm 1.5mm .7mm 0; border-bottom: .2mm solid var(--linha); vertical-align: top; }
+.vers td.c { font-family: 'Barlow Condensed'; font-weight: 700; white-space: nowrap; width: 20mm; }
+.vers-2col { columns: 2; column-gap: 6mm; }
+.vers-2col .vers { break-inside: auto; }
+
+/* ---------- Índices ---------- */
+.ind { columns: 3; column-gap: 7mm; font-size: 7.6pt; }
+.ind.cod { columns: 3; }
+.ind div { display: flex; justify-content: space-between; gap: 2mm; padding: .75mm 0; border-bottom: .2mm solid var(--linha); break-inside: avoid; }
+.ind div span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ind div b { font-family: 'Barlow Condensed'; font-weight: 700; white-space: nowrap; }
+.ind.cod div b:first-child { width: 19mm; }
+.ind-letra { font-family: 'League Gothic'; font-size: 13pt; color: #8A6F00; padding: 1.5mm 0 .5mm; break-after: avoid; border: 0 !important; }
+
+/* ---------- Contracapa ---------- */
+.contra { background: var(--preto); color: #FFF; }
+.contra-logo { position: absolute; top: 40mm; left: 16mm; width: 60mm; }
+.contra h2 { position: absolute; top: 70mm; left: 16mm; right: 16mm; margin: 0; font-family: 'League Gothic'; font-weight: 400; font-size: 44pt; line-height: .95; text-transform: uppercase; }
+.contra h2 b { color: var(--amarelo); font-weight: 400; }
+.contra-info { position: absolute; top: 128mm; left: 16mm; right: 16mm; display: grid; grid-template-columns: 1fr 1fr; gap: 8mm 12mm; font-size: 9.5pt; line-height: 1.5; color: #D8D8D3; }
+.contra-info strong { display: block; font-family: 'Barlow Condensed'; font-weight: 700; font-size: 9pt; letter-spacing: .16em; color: var(--amarelo); margin-bottom: 1.5mm; }
+.contra-faixa { position: absolute; left: 0; right: 0; bottom: 0; height: 14mm; background: var(--amarelo); display: flex; align-items: center; justify-content: space-between; padding: 0 16mm; color: var(--preto); font-family: 'Barlow Condensed'; font-weight: 700; font-size: 9pt; letter-spacing: .14em; }
+.contra-faixa img { height: 7mm; }

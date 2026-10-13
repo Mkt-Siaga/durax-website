@@ -38,7 +38,7 @@
     const foto = it.img
       ? '<img src="' + esc(it.img) + '" alt="' + esc(it.name) + '" loading="lazy">'
       : '<div class="sem-foto"><img src="assets/logo/durax-logo-preto.png" alt=""><span>Foto em breve</span></div>';
-    const rodape = temPagina ? 'Pág. ' + it.pages.join(', ') : 'Lançamento';
+    const rodape = (it.novo ? 'Lançamento · ' : '') + (temPagina ? 'Pág. ' + it.pages.join(', ') : '');
     const cta = led ? 'VER VARIAÇÕES →' : temPagina ? 'VER NO CATÁLOGO →' : 'CONSULTAR →';
     const link = '<a class="produto" href="' + href + '"' + (led ? '' : ' target="_blank" rel="noopener"') + '>' +
       '<div class="produto-foto">' + foto + '</div>' +
