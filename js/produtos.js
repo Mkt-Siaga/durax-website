@@ -32,27 +32,44 @@
     elBusca.value = estado.q;
   }
 
-  function card(it) {
+  const WHATSAPP = 'https://wa.me/5511914829870';
+  // versoes: [[código SIAGA, descrição], ...]
+  const textoVersoes = it => (it.versoes || []).map(v => v[0] + ' ' + v[1]).join(' ');
+
+  function card(it, nq) {
     const led = /^Painel/i.test(it.name);
-    const href = led ? 'categoria.html' : PDF + '#page=' + it.pages[0];
+    const temPagina = it.pages && it.pages.length;
+    const href = led ? 'categoria.html'
+      : temPagina ? PDF + '#page=' + it.pages[0]
+      : WHATSAPP + '?text=' + encodeURIComponent('Olá! Quero saber mais sobre: ' + it.name);
     const foto = it.img
       ? '<img src="' + esc(it.img) + '" alt="' + esc(it.name) + '" loading="lazy">'
       : '<img class="icone" src="' + iconeDa(it.cat) + '" alt="' + esc(it.name) + '" loading="lazy">';
-    const versoes = it.variants && it.variants.length
-      ? '<span class="produto-versoes">Versões: ' + esc(it.variants.join(', ')) + '</span>' : '';
-    return '<a class="produto" href="' + href + '"' + (led ? '' : ' target="_blank" rel="noopener"') + '>' +
+    const rodape = temPagina ? 'Pág. ' + it.pages.join(', ') : 'Lançamento';
+    const cta = led ? 'VER VARIAÇÕES →' : temPagina ? 'VER NO CATÁLOGO →' : 'CONSULTAR →';
+    const link = '<a class="produto" href="' + href + '"' + (led ? '' : ' target="_blank" rel="noopener"') + '>' +
       '<div class="produto-foto">' + foto + '</div>' +
       '<div class="produto-info">' +
         '<span class="produto-cat">' + esc(it.cat) + '</span>' +
-        '<span class="produto-nome">' + esc(it.name) + '</span>' + versoes +
-        '<span class="produto-rodape"><span>Pág. ' + it.pages.join(', ') + '</span><span>' +
-          (led ? 'VER VARIAÇÕES →' : 'VER NO CATÁLOGO →') + '</span></span>' +
+        '<span class="produto-nome">' + esc(it.name) + '</span>' +
+        '<span class="produto-rodape"><span>' + rodape + '</span><span>' + cta + '</span></span>' +
       '</div></a>';
+    const v = it.versoes || [];
+    if (!v.length) return '<div class="produto-card">' + link + '</div>';
+    // Na busca, abre a lista e destaca as versões que batem
+    const acha = x => nq && norm(x[0] + ' ' + x[1]).includes(nq);
+    const algumaBate = v.some(acha);
+    const linhas = v.map(x =>
+      '<li' + (acha(x) ? ' class="bate"' : '') + '><code>' + esc(x[0]) + '</code><span>' + esc(x[1]) + '</span></li>').join('');
+    return '<div class="produto-card">' + link +
+      '<details class="produto-versoes"' + (algumaBate ? ' open' : '') + '>' +
+        '<summary>' + v.length + (v.length === 1 ? ' versão' : ' versões') + '</summary>' +
+        '<ul>' + linhas + '</ul></details></div>';
   }
 
   function render() {
     const nq = norm(estado.q.trim());
-    const bate = it => !nq || norm(it.name + ' ' + (it.variants || []).join(' ') + ' ' + it.cat).includes(nq);
+    const bate = it => !nq || norm(it.name + ' ' + (it.variants || []).join(' ') + ' ' + textoVersoes(it) + ' ' + it.cat).includes(nq);
     const filtrados = todos.filter(bate);
 
     const cats = [{ label: 'Todas as categorias', i: -1, n: filtrados.length },
@@ -62,7 +79,11 @@
       '<span>' + esc(c.label) + '</span><small>' + c.n + '</small></button>').join('');
 
     const itens = filtrados.filter(it => estado.cat < 0 || it.ci === estado.cat);
-    elGrade.innerHTML = itens.map(card).join('');
+    elGrade.innerHTML = itens.map(it => card(it, nq)).join('');
+    // Rola cada lista aberta até a primeira versão encontrada na busca
+    elGrade.querySelectorAll('.produto-versoes[open] ul').forEach(ul => {
+      const b = ul.querySelector('.bate'); if (b) ul.scrollTop = b.offsetTop - ul.offsetTop - 8;
+    });
     elTitulo.textContent = estado.cat < 0 ? 'Todos os produtos' : (dados[estado.cat] || {}).name || '';
     elTotal.textContent = itens.length;
     elVazio.hidden = itens.length > 0;

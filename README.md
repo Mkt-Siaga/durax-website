@@ -23,7 +23,9 @@ css/styles.css        Tokens de tema (escuro padrão, [data-theme="light"] claro
 css/pages/*.css       Estilos de cada página
 js/tema.js            Aplica o tema salvo antes de desenhar (carregar no <head>)
 js/layout.js          Cabeçalho, mega menu, botão de tema, WhatsApp flutuante e rodapé
-js/catalogo.js        Dados do catálogo (window.DURAX_CATALOGO)
+js/catalogo.js        Dados do catálogo (window.DURAX_CATALOGO): itens, página do PDF, foto e
+                      `versoes` = [código SIAGA, descrição] (664 produtos vendidos como Durax,
+                      da lista de preços; NUNCA incluir preço, custo ou cliente — repositório público)
 js/paineis.js         Dados dos painéis LED (window.DURAX_PAINEIS)
 js/<pagina>.js        Lógica de cada página
 assets/               logo, produtos, site, textures, brand, catalogo (PDF)
