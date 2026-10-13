@@ -199,7 +199,7 @@ window.DURAX_CATALOGO = [
     {"name":"Luva Anticorte","pages":[78],"img":"assets/produtos/luva-anticorte.webp"},
     {"name":"Luva Nitrílica Descartável","pages":[79],"img":"assets/produtos/luva-nitrilica-descartavel.webp"},
     {"name":"Luva Descartável Incolor","pages":[79],"img":"assets/produtos/luva-descartavel-incolor.webp"},
-    {"name":"Rodizio Mesa Colson Gel","pages":[79],"img":"assets/produtos/rodizio-mesa-colson-gel.jpg"}
+    {"name":"Rodizio Mesa Gel","pages":[79],"img":"assets/produtos/rodizio-mesa-gel.jpg"}
   ]},
   {"name":"Solda, Corte Térmico e Apoio","page":81,"items":[
     {"name":"Maçarico Portátil","pages":[82],"img":"assets/produtos/macarico-culinario.jpg"},
