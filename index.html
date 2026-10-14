@@ -139,6 +139,30 @@
       </div>
     </section>
 
+    <!-- Carrossel de produtos (preenchido por js/home.js a partir de js/catalogo.js) -->
+    <section class="home-carrossel" aria-labelledby="carrossel-titulo">
+      <div class="container">
+        <div class="home-cab">
+          <div class="home-cab-titulo">
+            <span class="eyebrow">PRODUTOS DURAX</span>
+            <h2 id="carrossel-titulo" class="home-h2">Destaques da linha</h2>
+          </div>
+          <div class="carrossel-cab-acoes">
+            <a class="home-link" href="produtos.html">VER TODOS OS PRODUTOS →</a>
+            <div class="carrossel-setas">
+              <button type="button" class="carrossel-seta" data-dir="-1" aria-label="Produtos anteriores" disabled>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <button type="button" class="carrossel-seta" data-dir="1" aria-label="Próximos produtos">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <ul id="carrossel-trilho" class="carrossel-trilho" tabindex="0" aria-label="Destaques da linha Durax"></ul>
+      </div>
+    </section>
+
     <!-- Por que Durax -->
     <section class="home-provas">
       <div class="container">
@@ -248,6 +272,8 @@
   <footer id="site-footer"></footer>
 
   <script src="js/layout.js"></script>
+  <script src="js/catalogo.js"></script>
+  <script src="js/produto-util.js"></script>
   <script src="js/home.js"></script>
 </body>
 </html>

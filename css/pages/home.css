@@ -122,6 +122,68 @@
 .novidade-texto { font-size: 15px; line-height: 1.6; color: var(--texto-2); }
 .novidade-cta { margin-top: auto; padding-top: 8px; font-family: var(--font-cond); font-weight: 700; font-size: 15px; letter-spacing: .08em; color: var(--destaque); }
 
+/* ---------- Carrossel de destaques (adaptado do "Product Carousel" do 21st.dev) ---------- */
+.home-carrossel { background: var(--bg-secao); }
+.home-carrossel .container { padding-top: clamp(56px, 7vw, 96px); padding-bottom: clamp(56px, 7vw, 96px); }
+.carrossel-cab-acoes { display: flex; align-items: center; gap: 24px; }
+.carrossel-setas { display: flex; gap: 8px; }
+.carrossel-setas[hidden] { display: none; }
+.carrossel-seta {
+  width: 48px; height: 48px; display: grid; place-items: center; cursor: pointer;
+  background: transparent; color: var(--texto); border: 1px solid var(--linha-tracejada);
+  transition: background .2s, border-color .2s, color .2s, opacity .2s;
+}
+.carrossel-seta svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: square; }
+.carrossel-seta:hover:not(:disabled) { background: var(--amarelo); border-color: var(--amarelo); color: var(--preto); }
+.carrossel-seta:disabled { opacity: .3; cursor: default; }
+.carrossel-seta:focus-visible, .carrossel-trilho:focus-visible { outline: 2px solid var(--amarelo); outline-offset: 3px; }
+
+.carrossel-trilho {
+  list-style: none; margin: 0; padding: 0 0 4px;
+  display: grid; grid-auto-flow: column; grid-auto-columns: clamp(220px, 22vw, 280px); gap: 16px;
+  overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  scrollbar-width: none; overscroll-behavior-x: contain;
+}
+.carrossel-trilho::-webkit-scrollbar { display: none; }
+.carrossel-item { scroll-snap-align: start; display: flex; }
+.carrossel-card {
+  flex: 1; display: flex; flex-direction: column; background: var(--card); color: var(--texto);
+  outline: 1px solid var(--card-contorno); outline-offset: -1px;
+  transition: background .25s, box-shadow .25s, transform .25s;
+}
+.carrossel-card:hover { background: var(--campo); color: var(--texto); box-shadow: inset 0 -3px 0 var(--amarelo); }
+.carrossel-foto { position: relative; display: flex; align-items: center; justify-content: center; aspect-ratio: 1 / 1; background: #fff; overflow: hidden; }
+.carrossel-foto img { width: 82%; height: 82%; object-fit: contain; display: block; transition: transform .35s ease; }
+.carrossel-card:hover .carrossel-foto img { transform: scale(1.06); }
+.carrossel-selo {
+  position: absolute; top: 12px; left: 12px; background: var(--amarelo); color: var(--preto); padding: 4px 10px;
+  font-family: var(--font-cond); font-weight: 700; font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+}
+.carrossel-info { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.carrossel-cat { font-family: var(--font-cond); font-weight: 600; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--texto-3); }
+.carrossel-nome { font-family: var(--font-cond); font-weight: 700; font-size: 22px; line-height: 1.1; }
+.carrossel-rodape {
+  margin-top: auto; padding-top: 10px; display: flex; justify-content: space-between; align-items: baseline; gap: 8px;
+  font-size: 13px; color: var(--texto-3);
+}
+.carrossel-cta { font-family: var(--font-cond); font-weight: 700; font-size: 14px; letter-spacing: .08em; color: var(--destaque); white-space: nowrap; }
+
+/* Entrada escalonada (o JS liga só se houver IntersectionObserver) */
+.carrossel-espera .carrossel-item { opacity: 0; transform: translateY(20px); }
+.carrossel-visivel .carrossel-item {
+  opacity: 1; transform: none;
+  transition: opacity .5s ease, transform .5s ease; transition-delay: calc(min(var(--i), 6) * 70ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  .carrossel-trilho { scroll-behavior: auto; }
+  .carrossel-espera .carrossel-item { opacity: 1; transform: none; }
+  .carrossel-visivel .carrossel-item, .carrossel-foto img, .carrossel-card { transition: none; }
+}
+@media (max-width: 640px) {
+  .carrossel-trilho { grid-auto-columns: 72%; margin-right: calc(var(--gutter) * -1); padding-right: var(--gutter); scroll-padding-left: 0; }
+  .carrossel-setas { display: none; }
+}
+
 /* ---------- Por que Durax (faixa amarela) ---------- */
 .home-provas {
   background-color: var(--amarelo); background-image: url("../../assets/textures/textura-amarela.png");

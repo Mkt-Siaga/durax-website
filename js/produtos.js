@@ -1,6 +1,5 @@
 // Catálogo filtrável da página de produtos. Dados em js/catalogo.js (window.DURAX_CATALOGO).
 (function () {
-  const PDF = 'assets/catalogo/catalogo-durax-2026.pdf';
   const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -24,29 +23,23 @@
     elBusca.value = estado.q;
   }
 
-  const WHATSAPP = 'https://wa.me/5511914829870';
   // versoes: [[código SIAGA, descrição], ...]
   const textoVersoes = it => (it.versoes || []).map(v => v[0] + ' ' + v[1]).join(' ');
 
   function card(it, nq) {
-    // 2+ versões: página do produto com as variações; senão, a página do catálogo PDF
-    const variacoes = window.DuraxCatalogo.temVariacoes(it);
+    const d = window.DuraxCatalogo.destino(it);
     const temPagina = it.pages && it.pages.length;
-    const href = variacoes ? window.DuraxCatalogo.linkProduto(it)
-      : temPagina ? PDF + '#page=' + it.pages[0]
-      : WHATSAPP + '?text=' + encodeURIComponent('Olá! Quero saber mais sobre: ' + it.name);
     // Sem foto: aviso neutro (o ícone da categoria parecia outro produto)
     const foto = it.img
       ? '<img src="' + esc(it.img) + '" alt="' + esc(it.name) + '" loading="lazy">'
       : '<div class="sem-foto"><img src="assets/logo/durax-logo-preto.png" alt=""><span>Foto em breve</span></div>';
     const rodape = (it.novo ? 'Lançamento · ' : '') + (temPagina ? 'Pág. ' + it.pages.join(', ') : '');
-    const cta = variacoes ? 'VER VARIAÇÕES →' : temPagina ? 'VER NO CATÁLOGO →' : 'CONSULTAR →';
-    const link = '<a class="produto" href="' + href + '"' + (variacoes ? '' : ' target="_blank" rel="noopener"') + '>' +
+    const link = '<a class="produto" href="' + d.href + '"' + (d.externo ? ' target="_blank" rel="noopener"' : '') + '>' +
       '<div class="produto-foto">' + foto + '</div>' +
       '<div class="produto-info">' +
         '<span class="produto-cat">' + esc(it.cat) + '</span>' +
         '<span class="produto-nome">' + esc(it.name) + '</span>' +
-        '<span class="produto-rodape"><span>' + rodape + '</span><span>' + cta + '</span></span>' +
+        '<span class="produto-rodape"><span>' + rodape + '</span><span>' + d.cta + '</span></span>' +
       '</div></a>';
     const v = it.versoes || [];
     if (!v.length) return '<div class="produto-card">' + link + '</div>';

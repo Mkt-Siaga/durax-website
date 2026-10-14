@@ -7,6 +7,12 @@
     MIN_VARIACOES: 2, // a partir de quantas versões o produto ganha a página "Ver variações"
     linkProduto: it => 'produto.html#p=' + slug(it.name),
     temVariacoes: it => (it.versoes || []).length >= 2,
+    // Para onde o card leva: 2+ versões → página do produto; senão, a página do catálogo PDF; senão, WhatsApp
+    destino(it) {
+      if (this.temVariacoes(it)) return { href: this.linkProduto(it), externo: false, cta: 'VER VARIAÇÕES →' };
+      if (it.pages && it.pages.length) return { href: 'assets/catalogo/catalogo-durax-2026.pdf#page=' + it.pages[0], externo: true, cta: 'VER NO CATÁLOGO →' };
+      return { href: 'https://wa.me/5511914829870?text=' + encodeURIComponent('Olá! Quero saber mais sobre: ' + it.name), externo: true, cta: 'CONSULTAR →' };
+    },
     // Procura um produto pelo slug; devolve { it, ci, cat }
     acharProduto(s) {
       const dados = window.DURAX_CATALOGO || [];
