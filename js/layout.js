@@ -126,7 +126,7 @@
       '</div>' +
       '<div class="footer-base"><div class="container">' +
         '<span>© Durax 2025–2026</span>' +
-        '<nav><a href="#">Privacidade</a><a href="#">Política de cookies</a><a href="#">Termos de uso</a><a href="#">Código de ética</a></nav>' +
+        '<nav><a href="#">Privacidade</a><a href="#" data-cookies>Preferências de cookies</a><a href="#">Termos de uso</a><a href="#">Código de ética</a></nav>' +
         '<span class="siaga">UMA MARCA <img class="so-escuro" src="assets/site/siaga-branco.png" alt="Siaga Corp">' +
           '<img class="so-claro" src="assets/site/siaga-preto.png" alt="Siaga Corp"></span>' +
       '</div></div>';
