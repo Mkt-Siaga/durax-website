@@ -168,16 +168,52 @@
 }
 .carrossel-cta { font-family: var(--font-cond); font-weight: 700; font-size: 14px; letter-spacing: .08em; color: var(--destaque); white-space: nowrap; }
 
-/* Entrada escalonada (o JS liga só se houver IntersectionObserver) */
-.carrossel-espera .carrossel-item { opacity: 0; transform: translateY(20px); }
-.carrossel-visivel .carrossel-item {
-  opacity: 1; transform: none;
-  transition: opacity .5s ease, transform .5s ease; transition-delay: calc(min(var(--i), 6) * 70ms);
+/* Barra amarela: corre enquanto carrega; depois indica a posição da rolagem */
+.carrossel-progresso { position: relative; height: 3px; margin-top: 24px; background: var(--linha); overflow: hidden; }
+.carrossel-progresso span {
+  position: absolute; top: 0; bottom: 0; background: var(--amarelo);
+  width: var(--tam, 30%); left: calc(var(--pos, 0) * (100% - var(--tam, 30%)));
+  transition: left .15s linear, width .4s ease;
 }
+.carrossel-espera:not(.carrossel-pronto) .carrossel-progresso span { width: 30%; left: 0; animation: carrossel-corre 1s cubic-bezier(.6,0,.4,1) infinite; }
+@keyframes carrossel-corre { from { transform: translateX(-100%); } to { transform: translateX(340%); } }
+
+/* Esqueletos (placeholder de carregamento) */
+.carrossel-esqueleto {
+  display: flex; flex-direction: column; gap: 12px; padding-bottom: 20px;
+  background: var(--card); outline: 1px solid var(--card-contorno); outline-offset: -1px;
+}
+.carrossel-esqueleto span { display: block; margin: 0 20px; height: 14px; background: var(--linha); }
+.carrossel-esqueleto span:first-child { margin: 0 0 8px; height: auto; aspect-ratio: 1 / 1; }
+.carrossel-esqueleto span:nth-child(2) { width: 45%; }
+.carrossel-esqueleto span:nth-child(3) { width: 75%; height: 22px; }
+.carrossel-esqueleto span {
+  background-image: linear-gradient(100deg, transparent 20%, rgba(252,205,9,.14) 50%, transparent 80%);
+  background-size: 250% 100%; animation: carrossel-brilho 1.3s ease-in-out infinite;
+}
+@keyframes carrossel-brilho { from { background-position: 120% 0; } to { background-position: -120% 0; } }
+
+/* Cabeçalho sobe quando a seção aparece */
+.carrossel-espera .home-cab > * { opacity: 0; transform: translateY(24px); }
+.carrossel-visivel .home-cab > * { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1); }
+.carrossel-visivel .home-cab > :nth-child(2) { transition-delay: .12s; }
+
+/* Cards entram da direita, um a um; selo "Lançamento" dá um salto */
+.carrossel-entrando .carrossel-trilho { scroll-snap-type: none; }
+.carrossel-pronto .carrossel-item { animation: carrossel-entra .7s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i) * 90ms); }
+@keyframes carrossel-entra { from { opacity: 0; transform: translateX(60px) scale(.94); } to { opacity: 1; transform: none; } }
+.carrossel-pronto .carrossel-selo { animation: carrossel-selo .45s cubic-bezier(.3,1.6,.5,1) both; animation-delay: calc(var(--i) * 90ms + .45s); }
+@keyframes carrossel-selo { from { opacity: 0; transform: scale(.4) rotate(-8deg); } to { opacity: 1; transform: none; } }
+
+/* Foto sai do desfoque quando termina de carregar */
+.carrossel-pronto .carrossel-foto img { opacity: 0; filter: blur(10px); transform: scale(1.12); }
+.carrossel-pronto .carrossel-foto.carregada img { opacity: 1; filter: none; transform: none; transition: opacity .5s, filter .6s, transform .6s cubic-bezier(.2,.7,.2,1); }
+.carrossel-pronto .carrossel-card:hover .carrossel-foto.carregada img { transform: scale(1.06); transition: transform .35s ease; }
+
 @media (prefers-reduced-motion: reduce) {
   .carrossel-trilho { scroll-behavior: auto; }
-  .carrossel-espera .carrossel-item { opacity: 1; transform: none; }
-  .carrossel-visivel .carrossel-item, .carrossel-foto img, .carrossel-card { transition: none; }
+  .carrossel-pronto .carrossel-item, .carrossel-pronto .carrossel-selo { animation: none; }
+  .carrossel-pronto .carrossel-foto img { opacity: 1; filter: none; transform: none; transition: none; }
 }
 @media (max-width: 640px) {
   .carrossel-trilho { grid-auto-columns: 72%; margin-right: calc(var(--gutter) * -1); padding-right: var(--gutter); scroll-padding-left: 0; }
