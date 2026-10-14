@@ -142,7 +142,7 @@ document.fonts.ready.then(function () {
     '<div class="contra-info">' +
       '<div><strong>ATENDIMENTO</strong>SAC e WhatsApp (11) 91482-9870<br>R. Surubim, 577 – Cidade Monções<br>São Paulo – SP</div>' +
       '<div><strong>ONDE COMPRAR</strong>Distribuidores em RJ, GO, RO, AL e MG.<br>Lista completa e mapa no site.</div>' +
-      '<div><strong>SITE</strong>mkt-siaga.github.io/durax-website</div>' +
+      '<div><strong>SITE</strong>dev.duraxbr.com</div>' +
       '<div><strong>INSTAGRAM</strong>@duraxbr</div>' +
     '</div>' +
     '<div class="contra-faixa"><span>UMA MARCA SIAGA CORP</span><img src="' + RAIZ + 'assets/site/siaga-preto.png" alt="Siaga Corp"></div>');
