@@ -1,21 +1,27 @@
-// Painéis LED (usados por categoria.html e produto.html). O índice na lista é o #p=N da página de produto.
-// Dados provisórios (mesma lista do design); em produção, vir do ERP/catálogo.
-window.DURAX_PAINEIS = [
-  'PAINEL LED REDONDO DE EMBUTIR 6W 6500K BIVOLT', 'PAINEL LED REDONDO DE EMBUTIR 12W 6500K BIVOLT', 'PAINEL LED REDONDO DE EMBUTIR 18W 6500K BIVOLT',
-  'PAINEL LED QUADRADO DE EMBUTIR 6W 6500K BIVOLT', 'PAINEL LED QUADRADO DE EMBUTIR 12W 6500K BIVOLT', 'PAINEL LED QUADRADO DE EMBUTIR 18W 6500K BIVOLT',
-  'PAINEL LED REDONDO DE SOBREPOR 12W 6500K BIVOLT', 'PAINEL LED REDONDO DE SOBREPOR 18W 6500K BIVOLT', 'PAINEL LED REDONDO DE SOBREPOR 24W 6500K BIVOLT',
-  'PAINEL LED QUADRADO DE SOBREPOR 12W 6500K BIVOLT', 'PAINEL LED QUADRADO DE SOBREPOR 18W 6500K BIVOLT', 'PAINEL LED QUADRADO DE SOBREPOR 24W 6500K BIVOLT',
-  'PAINEL LED REDONDO DE EMBUTIR 24W 6500K BIVOLT', 'PAINEL LED QUADRADO DE EMBUTIR 24W 6500K BIVOLT', 'PAINEL LED REDONDO DE EMBUTIR 12W 3000K BIVOLT',
-  'PAINEL LED REDONDO DE EMBUTIR 18W 3000K BIVOLT', 'PAINEL LED QUADRADO DE SOBREPOR 24W 4000K PRETO', 'PAINEL LED QUADRADO DE EMBUTIR 18W 6500K PRETO',
-  'PAINEL LED QUADRADO DE PLÁSTICO EMB 18W 6500K', 'PAINEL LED QUADRADO DE PLÁSTICO SOBR 18W 6500K', 'PAINEL LED QUADRADO DE PLÁSTICO SOBR 24W 6500K', 'PAINEL LED QUADRADO DE PLÁSTICO EMB 24W 6500K'
-].map((n, i) => {
-  const formato = n.includes('REDONDO') ? 'Redondo' : 'Quadrado';
-  const instalacao = /EMBUTIR|\bEMB\b/.test(n) ? 'Embutir' : 'Sobrepor';
-  const potencia = +n.match(/(\d+)W/)[1], temp = +n.match(/(\d+)K/)[1];
-  const cor = n.includes('PRETO') ? 'Preto' : 'Branco', plast = n.includes('PLÁSTICO'), bivolt = n.includes('BIVOLT');
-  const name = 'Painel LED ' + formato + (plast ? ' de plástico' : '') + ' de ' + instalacao.toLowerCase() + ' ' + potencia + 'W ' + temp + 'K' +
-    (bivolt ? ' bivolt' : '') + (cor === 'Preto' ? ' preto' : '');
-  // Foto do portfólio Siaga por formato/instalação (códigos H01NB00001/05/09/13)
-  const foto = 'assets/produtos/painel-led-' + instalacao.toLowerCase() + '-' + formato.toLowerCase() + '.jpg';
-  return { i, name, formato, instalacao, potencia, temp, cor, plast, bivolt, foto };
-});
+// Painéis LED (página categoria.html): monta a lista a partir das versões reais do catálogo
+// (js/catalogo.js), lendo formato, instalação, potência, temperatura, corpo e cor da descrição.
+window.DURAX_PAINEIS = (function () {
+  const dados = window.DURAX_CATALOGO || [];
+  const U = window.DuraxCatalogo;
+  const lista = [];
+  dados.forEach(c => c.items.forEach(it => {
+    if (!/^Painel (de )?LED/i.test(it.name)) return;
+    (it.versoes || []).forEach(v => {
+      const d = (v[1] || '').toUpperCase();
+      const formato = /REDOND/.test(d) ? 'Redondo' : /QUADRAD/.test(d) ? 'Quadrado' : (/redondo/i.test(it.name) ? 'Redondo' : 'Quadrado');
+      const instalacao = /SOBREP|\bSOB\b/.test(d) ? 'Sobrepor' : /EMBUT|\bEMBU?\b/.test(d) ? 'Embutir' : (/sob/i.test(it.name) ? 'Sobrepor' : 'Embutir');
+      const pw = d.match(/(\d+)\s*W\b/), tk = d.match(/(\d{4})\s*K\b/);
+      const corpo = /ALUM/.test(d) ? 'Alumínio' : 'Plástico';
+      const cor = /PRET/.test(d) ? 'Preto' : 'Branco';
+      const potencia = pw ? +pw[1] : null, temp = tk ? +tk[1] : null;
+      lista.push({
+        i: lista.length, codigo: v[0], descricao: v[1],
+        name: 'Painel LED ' + formato.toLowerCase() + ' de ' + instalacao.toLowerCase() + (potencia ? ' ' + potencia + 'W' : '') + (temp ? ' ' + temp + 'K' : '') + (corpo === 'Alumínio' ? ' alumínio' : '') + (cor === 'Preto' ? ' preto' : ''),
+        formato, instalacao, potencia, temp, corpo, cor,
+        foto: it.img || ('assets/produtos/painel-led-' + instalacao.toLowerCase() + '-' + formato.toLowerCase() + '.jpg'),
+        link: U ? U.linkProduto(it) : 'produtos.html'
+      });
+    });
+  }));
+  return lista;
+})();

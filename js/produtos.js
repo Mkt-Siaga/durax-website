@@ -29,9 +29,10 @@
   const textoVersoes = it => (it.versoes || []).map(v => v[0] + ' ' + v[1]).join(' ');
 
   function card(it, nq) {
-    const led = /^Painel/i.test(it.name);
+    // 2+ versões: página do produto com as variações; senão, a página do catálogo PDF
+    const variacoes = window.DuraxCatalogo.temVariacoes(it);
     const temPagina = it.pages && it.pages.length;
-    const href = led ? 'categoria.html'
+    const href = variacoes ? window.DuraxCatalogo.linkProduto(it)
       : temPagina ? PDF + '#page=' + it.pages[0]
       : WHATSAPP + '?text=' + encodeURIComponent('Olá! Quero saber mais sobre: ' + it.name);
     // Sem foto: aviso neutro (o ícone da categoria parecia outro produto)
@@ -39,8 +40,8 @@
       ? '<img src="' + esc(it.img) + '" alt="' + esc(it.name) + '" loading="lazy">'
       : '<div class="sem-foto"><img src="assets/logo/durax-logo-preto.png" alt=""><span>Foto em breve</span></div>';
     const rodape = (it.novo ? 'Lançamento · ' : '') + (temPagina ? 'Pág. ' + it.pages.join(', ') : '');
-    const cta = led ? 'VER VARIAÇÕES →' : temPagina ? 'VER NO CATÁLOGO →' : 'CONSULTAR →';
-    const link = '<a class="produto" href="' + href + '"' + (led ? '' : ' target="_blank" rel="noopener"') + '>' +
+    const cta = variacoes ? 'VER VARIAÇÕES →' : temPagina ? 'VER NO CATÁLOGO →' : 'CONSULTAR →';
+    const link = '<a class="produto" href="' + href + '"' + (variacoes ? '' : ' target="_blank" rel="noopener"') + '>' +
       '<div class="produto-foto">' + foto + '</div>' +
       '<div class="produto-info">' +
         '<span class="produto-cat">' + esc(it.cat) + '</span>' +

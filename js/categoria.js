@@ -1,14 +1,17 @@
-// Categoria Painéis LED: filtros (formato, instalação, potência, temperatura de cor, cor) e ordenação.
-// Dados dos painéis em js/paineis.js (window.DURAX_PAINEIS).
+// Categoria Painéis LED: filtros (formato, instalação, potência, temperatura de cor, corpo, cor) e ordenação.
+// Dados em js/paineis.js (window.DURAX_PAINEIS), montados a partir das versões reais do catálogo.
 (function () {
   const PRODUTOS = window.DURAX_PAINEIS || [];
+  // Opções de cada filtro = valores que existem nos dados
+  const valores = (k, num) => [...new Set(PRODUTOS.map(p => p[k]).filter(v => v !== null && v !== undefined))].sort((a, b) => num ? a - b : String(a).localeCompare(String(b)));
   const FACETAS = [
-    { k: 'formato', label: 'FORMATO', opts: ['Redondo', 'Quadrado'] },
-    { k: 'instalacao', label: 'INSTALAÇÃO', opts: ['Embutir', 'Sobrepor'] },
-    { k: 'potencia', label: 'POTÊNCIA', opts: [6, 12, 18, 24], fmt: v => v + 'W' },
-    { k: 'temp', label: 'TEMPERATURA DE COR', opts: [3000, 4000, 6500], fmt: v => v + 'K' },
-    { k: 'cor', label: 'COR', opts: ['Branco', 'Preto'] }
-  ];
+    { k: 'formato', label: 'FORMATO', opts: valores('formato') },
+    { k: 'instalacao', label: 'INSTALAÇÃO', opts: valores('instalacao') },
+    { k: 'potencia', label: 'POTÊNCIA', opts: valores('potencia', true), fmt: v => v + 'W' },
+    { k: 'temp', label: 'TEMPERATURA DE COR', opts: valores('temp', true), fmt: v => v + 'K' },
+    { k: 'corpo', label: 'CORPO', opts: valores('corpo') },
+    { k: 'cor', label: 'COR', opts: valores('cor') }
+  ].filter(f => f.opts.length > 1);
   const CHECK = '<svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#171717" stroke-width="2.2" aria-hidden="true"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg>';
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const fmt = (f, v) => f.fmt ? f.fmt(v) : v;
@@ -33,19 +36,21 @@
   }
 
   function card(p) {
-    return '<a class="painel" href="produto.html#p=' + p.i + '">' +
-      '<div class="painel-foto"><img src="' + p.foto + '" alt="' + esc(p.name) + '" loading="lazy"></div>' +
+    const tags = (p.potencia ? '<span class="tag-forte">' + p.potencia + 'W</span>' : '') +
+      (p.temp ? '<span class="tag">' + p.temp + 'K</span>' : '') + '<span class="tag">' + esc(p.instalacao) + '</span>';
+    return '<a class="painel" href="' + esc(p.link) + '">' +
+      '<div class="painel-foto"><img src="' + esc(p.foto) + '" alt="' + esc(p.name) + '" loading="lazy"></div>' +
       '<div class="painel-info">' +
-        '<div class="painel-tags"><span class="tag-forte">' + p.potencia + 'W</span><span class="tag">' + p.temp + 'K</span><span class="tag">' + esc(p.instalacao) + '</span></div>' +
+        '<div class="painel-tags">' + tags + '</div>' +
         '<span class="painel-nome">' + esc(p.name) + '</span>' +
-        '<span class="painel-ean">EAN: a informar</span>' +
+        '<span class="painel-ean">' + (p.codigo && p.codigo !== '—' ? 'Cód. ' + esc(p.codigo) : esc(p.descricao)) + '</span>' +
       '</div></a>';
   }
 
   function render() {
     let itens = PRODUTOS.filter(p => passa(p));
-    if (estado.sort === 'up') itens = itens.slice().sort((a, b) => a.potencia - b.potencia);
-    if (estado.sort === 'down') itens = itens.slice().sort((a, b) => b.potencia - a.potencia);
+    if (estado.sort === 'up') itens = itens.slice().sort((a, b) => (a.potencia || 0) - (b.potencia || 0));
+    if (estado.sort === 'down') itens = itens.slice().sort((a, b) => (b.potencia || 0) - (a.potencia || 0));
 
     elFacetas.innerHTML = FACETAS.map(f =>
       '<div class="faceta" role="group" aria-labelledby="faceta-' + f.k + '">' +

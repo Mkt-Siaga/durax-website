@@ -9,8 +9,8 @@ Base: handoff do Claude Design "Site Durax v2" (8 páginas, temas escuro e claro
 |---|---|
 | `index.html` | Home |
 | `produtos.html` | Catálogo completo (busca + filtro por categoria, `#cat=N`, `#q=termo`) |
-| `categoria.html` | Painéis LED com filtros |
-| `produto.html` | Página de produto (`#p=N`) |
+| `categoria.html` | Painéis LED com filtros (montada das versões reais do catálogo) |
+| `produto.html` | Página de qualquer produto (`#p=<slug do nome>`): foto, botões e tabela de variações com filtro. Produtos com 2+ versões mostram "Ver variações" nos cards |
 | `onde-comprar.html` | Busca de revendas (`#cep=`) |
 | `seja-revendedor.html` | Benefícios + formulário de cadastro |
 | `blog.html` | Blog Duráximo com filtro por tag |

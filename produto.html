@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Painel LED — Durax</title>
-  <meta name="description" content="Painel LED Durax: variações de formato, instalação, potência e temperatura de cor, especificações e downloads.">
+  <title>Produto — Durax</title>
+  <meta name="description" content="Produto Durax: versões com código, descrição e embalagem, página no catálogo e onde comprar.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&family=League+Gothic&display=swap" rel="stylesheet">
@@ -18,8 +18,8 @@
   <meta name="theme-color" content="#171717">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Durax">
-  <meta property="og:title" content="Painel LED — Durax">
-  <meta property="og:description" content="Painel LED Durax: variações de formato, instalação, potência e temperatura de cor, especificações e downloads.">
+  <meta property="og:title" content="Produtos Durax">
+  <meta property="og:description" content="Produto Durax: versões com código, descrição e embalagem, página no catálogo e onde comprar.">
   <meta property="og:url" content="https://mkt-siaga.github.io/durax-website/produto.html">
   <meta property="og:image" content="https://mkt-siaga.github.io/durax-website/assets/icones/og-image.jpg">
   <meta property="og:image:width" content="1200">
@@ -30,76 +30,56 @@
   <header id="site-header" data-ativo="produtos"></header>
 
   <main>
-    <section class="container prod-topo">
-      <nav class="breadcrumb" aria-label="Você está em">
-        <a href="index.html">Início</a><span>/</span><a href="produtos.html#cat=4">Iluminação e elétrica</a><span>/</span><a href="categoria.html">Painéis LED</a><span>/</span><span aria-current="page" data-nome></span>
-      </nav>
-      <div class="prod-grid">
-        <div class="galeria">
-          <div class="galeria-principal">
-            <img id="foto-principal" class="galeria-foto" src="assets/produtos/painel-led-sobrepor-redondo.jpg" alt="">
-            <div id="slot-principal" class="galeria-slot" hidden></div>
-            <img class="bandeira" src="assets/brand/bandeira-canto.png" alt="">
-          </div>
-          <div id="miniaturas" class="miniaturas"></div>
-        </div>
-
-        <div class="prod-info">
-          <span class="eyebrow">ILUMINAÇÃO LED · PAINÉIS</span>
-          <h1 class="prod-titulo" data-nome></h1>
-          <div class="prod-codigos">
-            <span>Código: <span>a informar</span></span><span>EAN: <span>a informar</span></span><span>DUN (caixa master): <span>a informar</span></span>
-          </div>
-          <p id="resumo" class="prod-resumo"></p>
-
-          <div id="variacoes" class="variacoes"></div>
-
-          <div class="garantia">
-            <span class="garantia-icone"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#171717" stroke-width="2.4" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/><polyline points="8,12 11,15 16,9"/></svg></span>
-            <span class="garantia-texto"><strong>Garantia Durax.</strong> Prazo informado na embalagem. Lote inspecionado na fábrica antes do embarque.</span>
-          </div>
-
-          <div class="prod-ctas">
-            <a class="cta-onde" href="onde-comprar.html">ONDE COMPRAR</a>
-            <a id="cta-revenda" class="cta-revenda" href="https://wa.me/5511914829870" target="_blank" rel="noopener">COMPRAR PARA REVENDA</a>
-          </div>
-
-          <div class="downloads">
-            <!-- TODO: trocar "#" pelos PDFs reais quando existirem -->
-            <a href="#"><span>Ficha técnica</span><span class="downloads-pdf">PDF ↓</span></a>
-            <a href="#"><span>Manual de instalação</span><span class="downloads-pdf">PDF ↓</span></a>
-            <a href="#"><span>Certificado de conformidade</span><span class="downloads-pdf">PDF ↓</span></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="prod-detalhes">
+    <section class="page-hero pd-hero">
       <div class="container">
-        <div class="specs">
-          <h2 class="prod-h2">Especificações</h2>
-          <dl id="specs" class="specs-lista"></dl>
-        </div>
-        <div class="abas-bloco">
-          <div id="abas" class="abas" role="tablist" aria-label="Informações do produto"></div>
-          <div id="aba-corpo" class="aba-corpo" role="tabpanel"></div>
+        <nav class="breadcrumb" aria-label="Você está em" id="pd-trilha">
+          <a href="index.html">Início</a><span>/</span><a href="produtos.html">Produtos</a>
+        </nav>
+        <div class="pd-topo">
+          <div class="pd-foto" id="pd-foto"></div>
+          <div class="pd-info">
+            <span class="eyebrow" id="pd-cat"></span>
+            <h1 class="display pd-nome" id="pd-nome">Produto</h1>
+            <p class="pd-resumo" id="pd-resumo"></p>
+            <div class="pd-acoes" id="pd-acoes"></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="container prod-relacionados">
-      <div class="relacionados-topo">
-        <h2 class="prod-h2">Outros painéis</h2>
-        <a class="ver-todos" href="categoria.html">VER TODOS →</a>
+    <section class="pd-versoes-sec" id="pd-versoes-sec">
+      <div class="container">
+        <div class="pd-versoes-topo">
+          <h2 class="titulo-secao">Variações</h2>
+          <label class="pd-busca">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2.2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.5" y1="15.5" x2="21" y2="21"/></svg>
+            <input id="pd-filtro" type="search" placeholder="Filtrar por código, medida ou cor" aria-label="Filtrar variações">
+          </label>
+        </div>
+        <p class="pd-contagem" id="pd-contagem" aria-live="polite"></p>
+        <div class="pd-tabela-wrap">
+          <table class="pd-tabela">
+            <thead><tr><th>Código</th><th>Descrição</th></tr></thead>
+            <tbody id="pd-linhas"></tbody>
+          </table>
+        </div>
+        <p class="pd-nota">Códigos e embalagens conforme a lista de preços Durax. Confirme disponibilidade com o comercial antes de fechar o pedido.</p>
       </div>
-      <div id="relacionados" class="relacionados-grade"></div>
+    </section>
+
+    <section class="pd-relacionados-sec" id="pd-rel-sec">
+      <div class="container">
+        <h2 class="titulo-secao">Mais da categoria</h2>
+        <div class="pd-relacionados" id="pd-relacionados"></div>
+      </div>
     </section>
   </main>
 
   <footer id="site-footer"></footer>
 
   <script src="js/layout.js"></script>
-  <script src="js/paineis.js"></script>
+  <script src="js/catalogo.js"></script>
+  <script src="js/produto-util.js"></script>
   <script src="js/produto.js"></script>
 </body>
 </html>
